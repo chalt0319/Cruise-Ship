@@ -1,0 +1,11 @@
+<h1>Create a new Account:</h1>
+
+<%=form_for(@passenger) do |f|%>
+  <%=f.label "Ship"%>
+  <%=f.collection_select(:ship_id, Ship.all, :id, :name, {include_blank: ""})%><br>
+  <%=f.label :name%>
+  <%=f.text_field :name%><br>
+  <%=f.label :age%>
+  <%=f.text_field :age%><br><br>
+  <%=f.submit "Create Account"%>
+<%end%>

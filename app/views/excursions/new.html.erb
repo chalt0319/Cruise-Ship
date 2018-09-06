@@ -1,0 +1,7 @@
+<h1>Add Excursion:</h1>
+
+<%=form_for(@excursion) do |f|%>
+  <%=f.label "Excursion"%>
+  <%=f.collection_select(:excursion_id, Excursion.all, :id, :title, {include_blank: ""})%><br>
+  <%=f.submit "Add"%>
+<%end%>

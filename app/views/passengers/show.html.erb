@@ -1,0 +1,13 @@
+<h1>Welcome <%=@passenger.name%>!</h1>
+
+<h3>Your ship is: <%=@passenger.ship.name%></h3>
+
+<h3>Your Excursions:</h3>
+
+<ul>
+  <%@excursions.each do |e|%>
+  <li><%=e.title%></li>
+  <%end%>
+</ul>
+
+<%=link_to("Add Excursion", new_passenger_excursions_path(@passenger))%>
