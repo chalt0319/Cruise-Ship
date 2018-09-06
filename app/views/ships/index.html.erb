@@ -1,0 +1,13 @@
+<h1>All Available Ships:</h1>
+
+<%@ships.each do |ship|%>
+  <h3><%=ship.name%></h3>
+    <ul>
+      <li>Capacity: <%=ship.capacity%></li>
+      <li>Number of Swimming Pools: <%=ship.number_of_swimming_pools%></li>
+      <li>Kid Friendly: <%=ship.kid_friendly%></li>
+      <li>Casino: <%=ship.casino%></li>
+      <li>Zip Line: <%=ship.zip_line%></li>
+    </ul>
+
+<%end%>

@@ -6,14 +6,23 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Ship.create(name: "Nemo")
-Ship.create(name: "The Flying Dutchman")
-Ship.create(name: "The Black Pearl")
+Passenger.destroy_all
+Port.destroy_all
+Ship.destroy_all
+Excursion.destroy_all
 
-Port.create(name: "Port 1", location: "The Bahamas")
-Port.create(name: "Port 2", location: "St. Marteen")
-Port.create(name: "Port 3", location: "Labodee")
+p = Port.create(name: "Port 1", location: "The Bahamas")
+st = Port.create(name: "Port 2", location: "St. Marteen")
+l = Port.create(name: "Port 3", location: "Labodee")
 
-Excursion.create(title: "Rock Climbing", duration: 1, port_id: 1)
-Excursion.create(title: "Water Park", duration: 3, port_id: 2)
-Excursion.create(title: "Horse Back Riding", duration: 2.5, port_id: 3)
+Ship.create(name: "Nemo", capacity: 300, number_of_swimming_pools: 2, kid_friendly: true, casino: false, zip_line: true)
+Ship.create(name: "The Flying Dutchman", capacity: 500, number_of_swimming_pools: 3, kid_friendly: true, casino: false, zip_line: false)
+Ship.create(name: "The Black Pearl", capacity: 600, number_of_swimming_pools: 4, kid_friendly: false, casino: true, zip_line: true)
+
+Excursion.create(title: "Waterfall Hike", duration: 4, port_id: p.id)
+Excursion.create(title: "Rock Climbing", duration: 1, port_id: p.id)
+Excursion.create(title: "Jungle Tour", duration: 3, port_id: st.id)
+Excursion.create(title: "Water Park", duration: 2, port_id: st.id)
+Excursion.create(title: "Horse Back Riding", duration: 3, port_id: l.id)
+Excursion.create(title: "Snorkling", duration: 2.5, port_id: l.id)
+Excursion.create(title: "Wine Tasting", duration: 3, port_id: l.id)

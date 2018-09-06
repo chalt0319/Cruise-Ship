@@ -14,7 +14,7 @@ class PassengersController < ApplicationController
         redirect_to passenger_path(@passenger)
       else
         flash[:alert] = "#{error_messages[0]} - #{error_messages[1]} - #{error_messages[2]}"
-        redirect_to new_passenger_path
+        render "new"
       end
     else
       if @passenger = Passenger.find_by(name: params[:name])
@@ -23,11 +23,11 @@ class PassengersController < ApplicationController
           redirect_to passenger_path(@passenger)
         else
           flash[:alert] = "We cannot find your account in our system... Please try again."
-          redirect_to new_passenger_path
+          render "new"
         end
       else
         flash[:alert] = "We cannot find your account in our system... Please try again."
-        redirect_to new_passenger_path
+        render "new"
       end
     end
   end

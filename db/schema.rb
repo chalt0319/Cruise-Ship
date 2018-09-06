@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_06_184938) do
+ActiveRecord::Schema.define(version: 2018_09_06_213519) do
 
   create_table "excursions", force: :cascade do |t|
     t.string "title"
@@ -36,13 +36,6 @@ ActiveRecord::Schema.define(version: 2018_09_06_184938) do
     t.string "password_digest"
   end
 
-  create_table "port_ships", force: :cascade do |t|
-    t.integer "port_id"
-    t.integer "ship_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "ports", force: :cascade do |t|
     t.string "name"
     t.string "location"
@@ -54,6 +47,11 @@ ActiveRecord::Schema.define(version: 2018_09_06_184938) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "capacity"
+    t.integer "number_of_swimming_pools"
+    t.boolean "zip_line"
+    t.boolean "kid_friendly"
+    t.boolean "casino"
   end
 
 end
