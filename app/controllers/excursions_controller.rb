@@ -13,9 +13,14 @@ class ExcursionsController < ApplicationController
   def create
     @excursion = Excursion.find(params[:excursion][:id])
     @passenger = Passenger.find(session[:passenger_id])
-    @passenger.excursions << @excursion
-    @passenger.save
-    redirect_to passenger_path(@passenger)
+    if !@passenger.excursions.include?(@excursion)
+      @passenger.excursions << @excursion
+      @passenger.save
+      redirect_to passenger_path(@passenger)
+    else
+      flash[:alert] = "You are already signed up for that excersion!"
+      redirect_to passenger_path(@passenger)
+    end
   end
 
   def show
@@ -32,10 +37,6 @@ class ExcursionsController < ApplicationController
     else
       redirect_to root_path
     end
-  end
-
-  def update
-
   end
 
 
