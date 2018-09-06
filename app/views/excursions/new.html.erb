@@ -1,7 +1,13 @@
 <h1>Add Excursion:</h1>
 
-<%=form_for(@excursion) do |f|%>
+<%=form_for([@passenger, @excursion]) do |f|%>
   <%=f.label "Excursion"%>
-  <%=f.collection_select(:excursion_id, Excursion.all, :id, :title, {include_blank: ""})%><br>
+  <%=f.collection_select(:id, Excursion.all, :id, :title, {include_blank: ""})%><br><br>
   <%=f.submit "Add"%>
+<%end%>
+
+<h3>Click the below links to learn more about each Excursion:</h3>
+
+<%@excursions.each do |e|%>
+<%=link_to(e.title, passenger_excursion_path(@passenger, e))%><br>
 <%end%>
