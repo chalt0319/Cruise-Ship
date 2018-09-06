@@ -5,12 +5,21 @@ class PassengersController < ApplicationController
   end
 
   def create
-    @passenger = Passenger.new(passenger_params)
-    if @passenger.save
-      session[:passenger_id] = @passenger.id
-      redirect_to passenger_path(@passenger)
+    if params[:passenger]
+      @passenger = Passenger.new(passenger_params)
+      if @passenger.save
+        session[:passenger_id] = @passenger.id
+        redirect_to passenger_path(@passenger)
+      else
+        redirect_to new_passenger_path
+      end
     else
-      redirect_to new_passenger_path
+      @passenger = Passenger.find_by(name: params[:name])
+      if @passenger.authenticate(params[:password])
+        session[:passenger_id] = @passenger.id
+        redirect_to passenger_path(@passenger)
+      else
+        redirect_to new_passenger_path
     end
   end
 
@@ -19,9 +28,13 @@ class PassengersController < ApplicationController
     @excursions = @passenger.excursions
   end
 
+  def login
+
+  end
+
   private
 
   def passenger_params
-    params.require(:passenger).permit(:name, :age, :ship_id)
+    params.require(:passenger).permit(:name, :password, :age, :ship_id)
   end
 end

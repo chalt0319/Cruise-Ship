@@ -11,3 +11,6 @@
 <%@excursions.each do |e|%>
 <%=link_to(e.title, passenger_excursion_path(@passenger, e))%><br>
 <%end%>
+
+<br>
+<%=link_to("HomePage", passenger_path(@passenger))%>

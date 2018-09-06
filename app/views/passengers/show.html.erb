@@ -6,7 +6,7 @@
 
 <ul>
   <%@excursions.each do |e|%>
-  <li><%=e.title%></li>
+  <li><%=e.title%> - <%=e.port.location%> - <%=e.duration%> hour(s)</li>
   <%end%>
 </ul>
 
