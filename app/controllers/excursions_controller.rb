@@ -1,7 +1,7 @@
 class ExcursionsController < ApplicationController
 
   def new
-    if params[:passenger_id]
+    if check_current_user == true
       @excursion = Excursion.new
       @passenger = Passenger.find(params[:passenger_id])
       @excursions = Excursion.all
@@ -20,7 +20,22 @@ class ExcursionsController < ApplicationController
 
   def show
     @excursion = Excursion.find(params[:id])
-    @passenger = Passenger.find(params[:passenger_id])
+    @passenger = Passenger.find(session[:passenger_id])
+  end
+
+  def edit
+    if check_current_user == true
+      @excursion = Excursion.find(params[:id])
+      @passenger = Passenger.find(session[:passenger_id])
+      @passenger.excursions.delete(@excursion)
+      redirect_to passenger_path(@passenger)
+    else
+      redirect_to root_path
+    end
+  end
+
+  def update
+
   end
 
 

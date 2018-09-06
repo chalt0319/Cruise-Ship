@@ -2,7 +2,7 @@
 
 <%=form_for(@passenger) do |f|%>
   <%=f.label "Ship"%>
-  <%=f.collection_select(:ship_id, Ship.all, :id, :name, {include_blank: ""})%><br>
+  <%=f.collection_select(:ship_id, Ship.all, :id, :name, {include_blank: ""})%><br><br>
   <%=f.label :name%>
   <%=f.text_field :name%><br>
   <%=f.label :password%>

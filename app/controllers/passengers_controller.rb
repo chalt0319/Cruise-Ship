@@ -1,5 +1,7 @@
 class PassengersController < ApplicationController
 
+  # before_action :check_current_user, only: [:show]
+
   def new
     @passenger = Passenger.new
   end
@@ -20,16 +22,26 @@ class PassengersController < ApplicationController
         redirect_to passenger_path(@passenger)
       else
         redirect_to new_passenger_path
+      end
     end
   end
 
   def show
     @passenger = Passenger.find(params[:id])
     @excursions = @passenger.excursions
+    if !!check_current_user
+    else
+      redirect_to root_path
+    end
   end
 
   def login
 
+  end
+
+  def logout
+    session[:passenger_id] = nil
+    redirect_to root_path
   end
 
   private

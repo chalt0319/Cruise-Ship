@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   get '/login' => "passengers#login"
   post '/login' => "passengers#create"
+  get '/logout' => "passengers#logout"
 
   # get '/add_excursion' => "excursion#add"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
