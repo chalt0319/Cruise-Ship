@@ -1,10 +1,6 @@
 <h1>Add Excursion:</h1>
 
-<%=form_for([@passenger, @excursion]) do |f|%>
-  <%=f.label "Excursion"%>
-  <%=f.collection_select(:id, @excursions, :id, :title, {include_blank: ""})%><br><br>
-  <%=f.submit "Add"%>
-<%end%>
+<%= render partial: "form_add", locals: {passenger: @passenger, excursion: @excersion, excursions: @excursions} %>
 
 <h3>Click the below links to learn more about each Excursion:</h3>
 
