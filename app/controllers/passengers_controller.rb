@@ -16,6 +16,19 @@ class PassengersController < ApplicationController
         flash[:alert] = "#{error_messages[0]} - #{error_messages[1]} - #{error_messages[2]}"
         render "new"
       end
+    elsif auth
+      if @passenger = Passenger.find_by(uid: auth[:uid])
+        session[:user_id] = @passenger.id
+        redirect_to passenger_path(@passenger)
+      else
+        @passenger = Passenger.new
+        @passenger.uid = auth[:uid]
+        @passenger.name = auth[:info][:name]
+        @passenger.password = SecureRandom.hex
+        @passenger.save
+        session[:user_id] = @passenger.id
+        redirect_to passenger_path(@passenger)
+      end
     else
       if @passenger = Passenger.find_by(name: params[:name])
         if @passenger.authenticate(params[:password])
@@ -53,7 +66,7 @@ class PassengersController < ApplicationController
   private
 
   def passenger_params
-    params.require(:passenger).permit(:name, :password, :age, :ship_id)
+    params.require(:passenger).permit(:name, :password, :ship_id)
   end
 
   def error_messages
@@ -63,4 +76,9 @@ class PassengersController < ApplicationController
     end
     @alert
   end
+
+  def auth
+    request.env['omniauth.auth']
+  end
+
 end

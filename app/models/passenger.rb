@@ -4,7 +4,6 @@ class Passenger < ApplicationRecord
   validates :name, presence: true
   validates :name, uniqueness: true
   validates :password, presence: true
-  validates :age, presence: true
 
 
   belongs_to :ship

@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   post '/login' => "passengers#create"
   get '/logout' => "passengers#logout"
 
+  get '/auth/facebook/callback' => 'passengers#create'
+
   # get '/add_excursion' => "excursion#add"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
