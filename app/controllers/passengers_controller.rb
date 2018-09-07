@@ -18,15 +18,16 @@ class PassengersController < ApplicationController
       end
     elsif auth
       if @passenger = Passenger.find_by(uid: auth[:uid])
-        session[:user_id] = @passenger.id
+        session[:passenger_id] = @passenger.id
         redirect_to passenger_path(@passenger)
       else
         @passenger = Passenger.new
         @passenger.uid = auth[:uid]
         @passenger.name = auth[:info][:name]
         @passenger.password = SecureRandom.hex
+        @passenger.ship_id = session[:ship_id].to_i
         @passenger.save
-        session[:user_id] = @passenger.id
+        session[:passenger_id] = @passenger.id
         redirect_to passenger_path(@passenger)
       end
     else
@@ -55,7 +56,14 @@ class PassengersController < ApplicationController
   end
 
   def login
+  end
 
+  def fb_login
+  end
+
+  def fb_create
+    session[:ship_id] = params[:passenger][:ship_id]
+    redirect_to '/auth/facebook'
   end
 
   def logout

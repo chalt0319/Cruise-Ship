@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   get '/login' => "passengers#login"
   post '/login' => "passengers#create"
   get '/logout' => "passengers#logout"
+  get '/fb_login' => "passengers#fb_login"
+  post '/fb_login' => "passengers#fb_create"
 
   get '/auth/facebook/callback' => 'passengers#create'
 

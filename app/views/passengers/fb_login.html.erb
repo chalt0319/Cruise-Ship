@@ -1,0 +1,7 @@
+<h1>To Login with Facebook, Please Choose a Ship: </h1>
+
+<%=form_tag fb_login_path do%>
+  <%=label_tag "Ship"%>
+  <%=collection_select(:passenger, :ship_id, Ship.all, :id, :name, {include_blank: ""})%><br><br>
+  <%=submit_tag "Login with Facebook"%>
+<%end%>
