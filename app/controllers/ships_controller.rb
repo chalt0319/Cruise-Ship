@@ -5,7 +5,8 @@ class ShipsController < ApplicationController
   end
 
   def show
-    @ship = Ship.find(params[:id])
+    @ship = Ship.largest_ship
   end
+
 
 end

@@ -5,7 +5,10 @@ Rails.application.routes.draw do
     resources :excursions
   end
 
-  resources :ships
+  resources :ships, only: [:index]
+
+  get '/ships/largest_ship' => "ships#show"
+
 
   root to: "application#welcome"
 
