@@ -10,6 +10,7 @@ class CaptainsController < ApplicationController
       if @captain.save
         set_session_id
       else
+        set_flash_alerts
         redirect_to new_captain_path
       end
     else
@@ -55,6 +56,20 @@ class CaptainsController < ApplicationController
   def cannot_find_account
     flash[:alert] = "We cannot find your account in our system... Please try again."
     redirect_to captain_login_path
+  end
+
+  def error_messages
+    @alert = []
+    @captain.errors.full_messages.each do |m|
+      @alert << m
+    end
+    @alert
+  end
+
+  def set_flash_alerts
+    flash[:alert1] = "#{error_messages[0]}"
+    flash[:alert2] = "#{error_messages[1]}"
+    flash[:alert3] = "#{error_messages[2]}"
   end
 
 end
