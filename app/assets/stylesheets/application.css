@@ -35,5 +35,18 @@ h1 {
 .links {
   display: inline-block;
   padding-right: 15px;
+}
 
+a:link {
+  text-decoration: none;
+  color: blue;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:visited {
+  text-decoration: none;
+  color: blue;
 }

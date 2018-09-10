@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
 
-  
+
   helper_method :current_user
   helper_method :logged_in?
   helper_method :current_user_path
@@ -45,7 +45,7 @@ class ApplicationController < ActionController::Base
 
   def current_user_path
     @passenger = Passenger.find(session[:passenger_id])
-    user_path(@passenger)
+    passenger_path(@passenger)
   end
 
 end
