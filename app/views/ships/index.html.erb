@@ -1,10 +1,9 @@
 <h1>All Available Ships:</h1>
 
+
 <%@ships.each do |ship|%>
-  <h3><%=ship.name%> - Captain: <%=ship.captain.name%></h3>
-
-  <%= render partial: "ship_info", locals: {ship: ship} %>
-
+    <h3><%=ship.name%> - Captain: <%=ship.captain.name%></h3>
+    <%= render partial: "ship_info", locals: {ship: ship} %>
 <%end%>
-
+<br>
 <%=link_to("Largest Ship", ships_largest_ship_path)%>
