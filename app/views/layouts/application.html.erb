@@ -26,5 +26,9 @@
        <%= content_tag :div, msg, class: name %>
     <% end -%>
     <%= yield %>
+    <div class="inner_body">
+        <%= image_tag("beach.jpg", :alt => "beach", :class => "style_image") %>
+    </div>
+
   </body>
 </html>

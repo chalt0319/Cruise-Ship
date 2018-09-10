@@ -28,7 +28,7 @@ h1 {
   width: 100%;
 }
 
-.body {
+body {
   margin-top: 5%;
 }
 
@@ -49,4 +49,13 @@ a:hover {
 a:visited {
   text-decoration: none;
   color: blue;
+}
+
+.style_image {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  opacity: 0.2;
+  z-index: -1;
 }
