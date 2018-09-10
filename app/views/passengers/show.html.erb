@@ -4,11 +4,8 @@
 
 <h3>Your Excursions:</h3>
 
-<ul>
-  <%@excursions.each do |e|%>
-  <li><%=e.title%> - <%=e.port.location%> - <%=e.duration%> hour(s) - <%=link_to("Delete", edit_passenger_excursion_path(@passenger, e))%></li>
-  <%end%>
-</ul>
+<%= render partial: "excursions", locals: {excursions: @excursions, passenger: @passenger} %>
+
 
 <h3>Total Excursion Time: <%=@passenger.total_excursion_time%> hour(s).</h3>
 

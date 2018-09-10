@@ -25,12 +25,10 @@ class PassengersController < ApplicationController
         if @passenger.authenticate(params[:password])
           set_session_id
         else
-          flash[:alert] = "We cannot find your account in our system... Please try again."
-          redirect_to login_path
+          cannot_find_account
         end
       else
-        flash[:alert] = "We cannot find your account in our system... Please try again."
-        redirect_to login_path
+        cannot_find_account
       end
     end
   end
@@ -96,6 +94,11 @@ class PassengersController < ApplicationController
     flash[:alert1] = "#{error_messages[0]}"
     flash[:alert2] = "#{error_messages[1]}"
     flash[:alert3] = "#{error_messages[2]}"
+  end
+
+  def cannot_find_account
+    flash[:alert] = "We cannot find your account in our system... Please try again."
+    redirect_to login_path
   end
 
 end

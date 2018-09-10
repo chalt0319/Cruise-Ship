@@ -1,0 +1,5 @@
+<ul>
+  <%@excursions.each do |e|%>
+  <li><%=e.title%> - <%=e.port.location%> - <%=e.duration%> hour(s) - <%=link_to("Delete", edit_passenger_excursion_path(@passenger, e))%></li>
+  <%end%>
+</ul>
