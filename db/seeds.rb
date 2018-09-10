@@ -15,9 +15,13 @@ p = Port.create(name: "Port 1", location: "The Bahamas")
 st = Port.create(name: "Port 2", location: "St. Marteen")
 l = Port.create(name: "Port 3", location: "Labodee")
 
-Ship.create(name: "Nemo", capacity: 300, number_of_swimming_pools: 2, kid_friendly: true, casino: false, zip_line: true)
-Ship.create(name: "The Flying Dutchman", capacity: 500, number_of_swimming_pools: 3, kid_friendly: true, casino: false, zip_line: false)
-Ship.create(name: "The Black Pearl", capacity: 600, number_of_swimming_pools: 4, kid_friendly: false, casino: true, zip_line: true)
+c = Captain.create(name: "El Capitan", password: "yes", secret_phrase: "ipromise")
+b = Captain.create(name: "Jack Sparrow", password: "yes", secret_phrase: "ipromise")
+a = Captain.create(name: "The Dutchman", password: "yes", secret_phrase: "ipromise")
+
+Ship.create(name: "Nemo", capacity: 300, number_of_swimming_pools: 2, kid_friendly: true, casino: false, zip_line: true, captain_id: c.id)
+Ship.create(name: "The Flying Dutchman", capacity: 500, number_of_swimming_pools: 3, kid_friendly: true, casino: false, zip_line: false, captain_id: a.id)
+Ship.create(name: "The Black Pearl", capacity: 600, number_of_swimming_pools: 4, kid_friendly: false, casino: true, zip_line: true, captain_id: b.id)
 
 Excursion.create(title: "Waterfall Hike", duration: 4, port_id: p.id)
 Excursion.create(title: "Rock Climbing", duration: 1, port_id: p.id)

@@ -28,7 +28,7 @@ class ApplicationController < ActionController::Base
   end
 
   def logged_in?
-    if !!session[:user_id]
+    if !!session[:user_id] || !!session[:captain_id]
       true
     else
       false
@@ -37,14 +37,10 @@ class ApplicationController < ActionController::Base
 
   def current_user
     if logged_in?
-      if @passenger = Passenger.find_by(id: session[:user_id]) || @captain = Captain.find_by(id: session[:user_id])
-        if @passenger
-          "#{@passenger.name}'s Profile"
-        elsif @captain
-          "#{@captain.name}'s Profile"
-        else
-          false
-        end
+      if @captain = Captain.find_by(id: session[:captain_id])
+        "#{@captain.name}'s Profile"
+      elsif @passenger = Passenger.find_by(id: session[:user_id])
+        "#{@passenger.name}'s Profile"
       else
         false
       end
@@ -57,8 +53,8 @@ class ApplicationController < ActionController::Base
     if !!Passenger.find_by(id: session[:user_id])
       @passenger = Passenger.find(session[:user_id])
       passenger_path(@passenger)
-    elsif !!Captain.find_by(id: session[:user_id])
-      @captain = Captain.find(session[:user_id])
+    elsif !!Captain.find_by(id: session[:captain_id])
+      @captain = Captain.find(session[:captain_id])
       captain_path(@captain)
     end
   end
@@ -66,8 +62,8 @@ class ApplicationController < ActionController::Base
   def current_user_instance
     if !!Passenger.find_by(id: session[:user_id])
       Passenger.find(session[:user_id])
-    elsif !!Captain.find_by(id: session[:user_id])
-      Captain.find(session[:user_id])
+    elsif !!Captain.find_by(id: session[:captain_id])
+      Captain.find(session[:captain_id])
     end
   end
 

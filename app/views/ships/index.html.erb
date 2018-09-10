@@ -1,7 +1,7 @@
 <h1>All Available Ships:</h1>
 
 <%@ships.each do |ship|%>
-  <h3><%=ship.name%></h3>
+  <h3><%=ship.name%> - Captain: <%=ship.captain.name%></h3>
 
   <%= render partial: "ship_info", locals: {ship: ship} %>
 

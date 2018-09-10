@@ -8,8 +8,7 @@ class CaptainsController < ApplicationController
     if params[:captain]
       @captain = Captain.new(captain_params)
       if @captain.save
-        session[:user_id] = @captain.id
-        redirect_to captain_path(@captain)
+        set_session_id
       else
         redirect_to new_captain_path
       end
@@ -27,23 +26,25 @@ class CaptainsController < ApplicationController
   end
 
   def show
-    @captain = Captain.find(session[:user_id])
+    @captain = Captain.find(session[:captain_id])
   end
 
   def login
-
-
   end
 
+  def logout
+    session[:user_id] = nil
+    redirect_to root_path
+  end
 
   private
 
   def captain_params
-    params.require(:captain).permit(:name, :password, :ship_ids, :secret_phrase)
+    params.require(:captain).permit(:name, :password, :secret_phrase)
   end
 
   def set_session_id
-    session[:user_id] = @captain.id
+    session[:captain_id] = @captain.id
     redirect_to captain_path(@captain)
   end
 
