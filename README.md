@@ -1,24 +1,17 @@
-# README
+# Your Cruise Navigator
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Description
 
-Things you may want to cover:
+With this app, you can create an account for your cruise, add excursions (and delete them), and see how much time you will be spending on all your excursions.
 
-* Ruby version
+## Usage
 
-* System dependencies
+To use this app, just clone, run `rake db:migrate`, `rake db:seed` and then run `thin start --ssl`. Everything should be set up from there.
 
-* Configuration
+## Contributing
 
-* Database creation
+Bug reports and pull requests are welcome on GitHub at https://github.com/chalt0319/Cruise-Ship. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
-* Database initialization
+## License
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+[MIT License](https://choosealicense.com/licenses/mit/)
