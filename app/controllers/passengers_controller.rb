@@ -10,9 +10,7 @@ class PassengersController < ApplicationController
       if @passenger.save
         set_session_id
       else
-        flash[:alert1] = "#{error_messages[0]}"
-        flash[:alert2] = "#{error_messages[1]}"
-        flash[:alert3] = "#{error_messages[2]}"
+        set_flash_alerts
         render "new"
       end
     elsif auth
@@ -92,6 +90,12 @@ class PassengersController < ApplicationController
     @passenger.password = SecureRandom.hex
     @passenger.ship_id = session[:ship_id].to_i
     @passenger.save
+  end
+
+  def set_flash_alerts
+    flash[:alert1] = "#{error_messages[0]}"
+    flash[:alert2] = "#{error_messages[1]}"
+    flash[:alert3] = "#{error_messages[2]}"
   end
 
 end
