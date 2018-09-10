@@ -13,7 +13,9 @@ class PassengersController < ApplicationController
         session[:passenger_id] = @passenger.id
         redirect_to passenger_path(@passenger)
       else
-        flash[:alert] = "#{error_messages[0]} - #{error_messages[1]} - #{error_messages[2]}"
+        flash[:alert1] = "#{error_messages[0]}"
+        flash[:alert2] = "#{error_messages[1]}"
+        flash[:alert3] = "#{error_messages[2]}"
         render "new"
       end
     elsif auth
@@ -37,11 +39,11 @@ class PassengersController < ApplicationController
           redirect_to passenger_path(@passenger)
         else
           flash[:alert] = "We cannot find your account in our system... Please try again."
-          render "new"
+          redirect_to login_path
         end
       else
         flash[:alert] = "We cannot find your account in our system... Please try again."
-        render "new"
+        redirect_to login_path
       end
     end
   end
