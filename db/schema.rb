@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_07_140129) do
+ActiveRecord::Schema.define(version: 2018_09_10_180933) do
+
+  create_table "captains", force: :cascade do |t|
+    t.string "name"
+    t.string "password_digest"
+    t.string "secret_phrase"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "excursions", force: :cascade do |t|
     t.string "title"
@@ -52,6 +60,7 @@ ActiveRecord::Schema.define(version: 2018_09_07_140129) do
     t.boolean "zip_line"
     t.boolean "kid_friendly"
     t.boolean "casino"
+    t.integer "captain_id"
   end
 
 end

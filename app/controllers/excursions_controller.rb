@@ -42,7 +42,7 @@ class ExcursionsController < ApplicationController
   private
 
   def find_passenger
-    @passenger = Passenger.find(session[:passenger_id])
+    @passenger = Passenger.find(session[:user_id])
   end
 
   def find_excursion

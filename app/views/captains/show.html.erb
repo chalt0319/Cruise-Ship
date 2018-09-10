@@ -1,0 +1,11 @@
+<h1>Welcome <%=@captain.name%></h1>
+
+<h2>Your Ships:</h2>
+<%@captain.ships.each do |ship|%>
+  <h3><%=ship.name%> - <%=link_to("Edit", edit_ship_path(ship))%></h3>
+
+  <%= render partial: "ships/ship_info", locals: {ship: ship} %>
+
+<%end%>
+
+<%=link_to("Create New Ship", new_ship_path)%>

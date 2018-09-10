@@ -1,0 +1,15 @@
+<%=form_for(ship) do |f|%>
+  <%=f.label "Name"%>
+  <%=f.text_field :name%><br>
+  <%=f.label :capacity%>
+  <%=f.text_field :capacity%><br>
+  <%=f.label "number_of_swimming_pools"%>
+  <%=f.text_field :number_of_swimming_pools%><br>
+  <%=f.label "zip_line"%>
+  <%=f.check_box :zip_line%><br>
+  <%=f.label "kid_friendly"%>
+  <%=f.check_box :kid_friendly%><br>
+  <%=f.label "Casino"%>
+  <%=f.check_box :casino%><br><br>
+  <%=f.submit "Submit"%>
+<%end%>

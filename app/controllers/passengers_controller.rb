@@ -54,7 +54,7 @@ class PassengersController < ApplicationController
   end
 
   def logout
-    session[:passenger_id] = nil
+    session[:user_id] = nil
     redirect_to root_path
   end
 
@@ -77,7 +77,7 @@ class PassengersController < ApplicationController
   end
 
   def set_session_id
-    session[:passenger_id] = @passenger.id
+    session[:user_id] = @passenger.id
     redirect_to passenger_path(@passenger)
   end
 

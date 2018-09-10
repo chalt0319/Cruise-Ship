@@ -1,11 +1,15 @@
 Rails.application.routes.draw do
+  resources :captains
+  get '/captain/login' => "captains#login"
+  post '/captain/login' => "captains#create"
+
   resources :ports
 
   resources :passengers do
     resources :excursions
   end
 
-  resources :ships, only: [:index]
+  resources :ships, only: [:index, :new, :create, :edit, :update, :destroy]
 
   get '/ships/largest_ship' => "ships#show"
 
