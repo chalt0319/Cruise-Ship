@@ -1,7 +1,5 @@
 class PassengersController < ApplicationController
 
-  # before_action :check_current_user, only: [:show]
-
   def new
     @passenger = Passenger.new
   end
@@ -10,8 +8,7 @@ class PassengersController < ApplicationController
     if params[:passenger]
       @passenger = Passenger.new(passenger_params)
       if @passenger.save
-        session[:passenger_id] = @passenger.id
-        redirect_to passenger_path(@passenger)
+        set_session_id
       else
         flash[:alert1] = "#{error_messages[0]}"
         flash[:alert2] = "#{error_messages[1]}"
@@ -20,23 +17,15 @@ class PassengersController < ApplicationController
       end
     elsif auth
       if @passenger = Passenger.find_by(uid: auth[:uid])
-        session[:passenger_id] = @passenger.id
-        redirect_to passenger_path(@passenger)
+        set_session_id
       else
-        @passenger = Passenger.new
-        @passenger.uid = auth[:uid]
-        @passenger.name = auth[:info][:name]
-        @passenger.password = SecureRandom.hex
-        @passenger.ship_id = session[:ship_id].to_i
-        @passenger.save
-        session[:passenger_id] = @passenger.id
-        redirect_to passenger_path(@passenger)
+        fb_setup
+        set_session_id
       end
     else
       if @passenger = Passenger.find_by(name: params[:name])
         if @passenger.authenticate(params[:password])
-          session[:passenger_id] = @passenger.id
-          redirect_to passenger_path(@passenger)
+          set_session_id
         else
           flash[:alert] = "We cannot find your account in our system... Please try again."
           redirect_to login_path
@@ -89,6 +78,20 @@ class PassengersController < ApplicationController
 
   def auth
     request.env['omniauth.auth']
+  end
+
+  def set_session_id
+    session[:passenger_id] = @passenger.id
+    redirect_to passenger_path(@passenger)
+  end
+
+  def fb_setup
+    @passenger = Passenger.new
+    @passenger.uid = auth[:uid]
+    @passenger.name = auth[:info][:name]
+    @passenger.password = SecureRandom.hex
+    @passenger.ship_id = session[:ship_id].to_i
+    @passenger.save
   end
 
 end
