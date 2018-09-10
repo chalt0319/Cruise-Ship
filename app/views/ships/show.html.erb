@@ -1,0 +1,5 @@
+<h1>Our Largest Ship is: <%=@ship.name%></h1>
+
+<%= render partial: "ship_info", locals: {ship: @ship} %>
+
+<%=link_to("All Ships", ships_path)%>

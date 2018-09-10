@@ -4,4 +4,8 @@ class ShipsController < ApplicationController
     @ships = Ship.all
   end
 
+  def show
+    @ship = Ship.find(params[:id])
+  end
+
 end

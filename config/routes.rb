@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     resources :excursions
   end
 
-  resources :ships, only: [:index]
+  resources :ships
 
   root to: "application#welcome"
 

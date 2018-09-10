@@ -2,14 +2,11 @@
 
 <%@ships.each do |ship|%>
   <h3><%=ship.name%></h3>
-    <ul>
-      <li>Capacity: <%=ship.capacity%></li>
-      <li>Number of Swimming Pools: <%=ship.number_of_swimming_pools%></li>
-      <li>Kid Friendly: <%=ship.kid_friendly%></li>
-      <li>Casino: <%=ship.casino%></li>
-      <li>Zip Line: <%=ship.zip_line%></li>
-    </ul>
+
+  <%= render partial: "ship_info", locals: {ship: ship} %>
 
 <%end%>
 
-<%=link_to("Homepage", root_path)%>
+<%=link_to("Homepage", root_path)%><br>
+
+<%=link_to("Largest Ship", ship_path(largest_ship))%>
