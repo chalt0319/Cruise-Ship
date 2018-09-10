@@ -13,10 +13,20 @@ class ApplicationController < ActionController::Base
 
   def check_current_user
     if @passenger || @captain
-      if @passenger.id == session[:user_id] || @captain.id == session[:user_id]
-        true
+      if @passenger
+        if @passenger.id == session[:user_id]
+          true
+        else
+          false
+        end
+      elsif @captain
+        if @captain.id == session[:captain_id]
+          true
+        else
+          false
+        end
       else
-        false
+        false 
       end
     else
       if params[:passenger_id].to_i == session[:user_id]

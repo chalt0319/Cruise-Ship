@@ -27,6 +27,10 @@ class CaptainsController < ApplicationController
 
   def show
     @captain = Captain.find(session[:captain_id])
+    if !!check_current_user
+    else
+      redirect_to root_path
+    end
   end
 
   def login
