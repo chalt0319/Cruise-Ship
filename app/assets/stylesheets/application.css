@@ -18,3 +18,22 @@
 h1 {
   color: blue;
 }
+
+.header {
+  background-color: #92D7F4;
+  padding: 15px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.body {
+  margin-top: 5%;
+}
+
+.links {
+  display: inline-block;
+  padding-right: 15px;
+
+}

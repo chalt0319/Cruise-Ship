@@ -4,12 +4,24 @@
     <title>CruiseShip</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <div class="header">
+    <a class="links" href="<%=root_path%>">Home</a>
+    <%if logged_in? == true %>
+    <a class="links" href="<%=current_user_path%>"><%=current_user%></a>
+    <a class="links" href="<%=logout_path%>">Logout</a>
+    <%else %>
+      <a class="links" href="<%=login_path%>">Login</a>
+      <a class="links" href="<%=fb_login_path%>">Log in with Facebook!</a>
+      <a class="links" href="<%=new_passenger_path%>">Sign Up</a>
+    <%end%>
+
+  </div>
+  <body class="body">
     <% flash.each do |name, msg| -%>
        <%= content_tag :div, msg, class: name %>
     <% end -%>
