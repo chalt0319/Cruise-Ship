@@ -7,6 +7,7 @@ With this app, you can create an account for your cruise, add excursions (and de
 ## Usage
 
 To use this app, just clone, run `rake db:migrate`, `rake db:seed` and then run `thin start --ssl`. Everything should be set up from there.
+(Note: if you are trying to create a Captain, the secrete phrase is "ipromise".)
 
 ## Contributing
 
