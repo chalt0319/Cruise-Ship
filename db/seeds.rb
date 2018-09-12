@@ -10,6 +10,7 @@ Passenger.destroy_all
 Port.destroy_all
 Ship.destroy_all
 Excursion.destroy_all
+Captain.destroy_all
 
 p = Port.create(name: "Port 1", location: "The Bahamas")
 st = Port.create(name: "Port 2", location: "St. Marteen")
