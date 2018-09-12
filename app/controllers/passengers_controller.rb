@@ -36,6 +36,7 @@ class PassengersController < ApplicationController
   def show
     @passenger = Passenger.find(params[:id])
     @excursions = @passenger.excursions
+    # @comment = PassengerExcursion.find_passenger_excursion(@passenger, @excursion).comment
     if !!check_current_user
     else
       redirect_to root_path
@@ -55,7 +56,7 @@ class PassengersController < ApplicationController
 
   def logout
     session[:user_id] = nil
-    session[:captain_id] = nil 
+    session[:captain_id] = nil
     redirect_to root_path
   end
 

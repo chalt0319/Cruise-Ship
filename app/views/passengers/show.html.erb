@@ -6,7 +6,7 @@
 
 <h3>Your Excursions:</h3>
 
-<%= render partial: "excursions", locals: {excursions: @excursions, passenger: @passenger} %>
+<%= render partial: "excursions", locals: {excursions: @excursions, passenger: @passenger, passenger_excursion: @passenger_excursion} %>
 
 
 <h3>Total Excursion Time: <%=pluralize_hours(@passenger)%>.</h3>
