@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :passengers do
     resources :excursions do
       resources :passenger_excursions
-    end 
+    end
   end
 
   get '/passenger_excursions/most_recent' => "passenger_excursions#show"
@@ -20,6 +20,8 @@ Rails.application.routes.draw do
   get '/fb_login' => "passengers#fb_login"
   post '/fb_login' => "passengers#fb_create"
   get '/auth/facebook/callback' => 'passengers#create'
+
+  post '/passengers/:passenger_id/excursions/:excursion_id/passenger_excursion/:id' => "passenger_excursions#update"
 
   resources :ships, only: [:index, :new, :create, :edit, :update, :destroy]
 

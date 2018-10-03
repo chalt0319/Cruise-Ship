@@ -9,11 +9,12 @@ class PassengerExcursionsController < ApplicationController
   end
 
   def update
+    # binding.pry
     @passenger = Passenger.find_by(id: params[:passenger_id])
     @passenger_excursion = PassengerExcursion.find_by(id: params[:id])
     @passenger_excursion.update(the_params)
-    redirect_to passenger_path(@passenger)
-    # render :layout => false
+    # redirect_to passenger_path(@passenger)
+    render json: @passenger_excursion
   end
 
   def show
@@ -26,6 +27,6 @@ class PassengerExcursionsController < ApplicationController
   private
 
   def the_params
-    params.require(:passenger_excursion).permit(:comment)
+    params.permit(:comment)
   end
 end

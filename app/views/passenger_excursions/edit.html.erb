@@ -3,5 +3,6 @@
 <%=form_for([@passenger, @excursion, @passenger_excursion]) do |f|%>
   <%=f.label :comment%><br>
   <%=f.text_area :comment, cols: "50", rows: "5"%><br>
-  <%=f.submit "Add Comment"%>
+  <!-- <span id="submit" data-submiturl="/passengers/<%@passenger.id%>/excursions/<%=@excursion.id%>/passenger_excursions/<%=@passenger_excursion.id%>"><%=f.submit "Submit", :class => "submit_comment"%></span> -->
+  <button type="button" id="submit" onclick="url(<%=@passenger.id%>, <%=@excursion.id%>, <%=@passenger_excursion.id%>)" data-submiturl="/passengers/<%@passenger.id%>/excursions/<%=@excursion.id%>/passenger_excursions/<%=@passenger_excursion.id%>">Submit</button>
 <%end%>

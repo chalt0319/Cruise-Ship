@@ -1,6 +1,3 @@
-// # Place all the behaviors and hooks related to the matching controller here.
-// # All this logic will automatically be available in application.js.
-// # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(function () {
   $(".learn_link").click(function (e) {
@@ -16,7 +13,6 @@ $(function () {
     var $link = $(this)
     var passengerId = $(".passenger_name").data("id")
     $.get("/passengers/" + passengerId + "/excursions/new", function (response) {
-      // console.log(response)
       $link.before(response)
     })
   })
@@ -24,7 +20,6 @@ $(function () {
     e.preventDefault()
     var url = $(this).data("url")
     var excersionId = $(this).data("id")
-    // debugger
     $.get(url, function (response) {
       $(".id_" + excersionId).append(response)
     })
@@ -33,15 +28,13 @@ $(function () {
     e.preventDefault()
     var excersionId = $(this).data("id")
     var url = $(this).data("deleteurl")
-    // debugger
     $.get(url, function (response) {
-      console.log(response)
-      // debugger
       $(".total_time").text("Total Excursion Time: " + response.time + " " + response.hours + ".")
       $(".childId_" + excersionId).remove()
       $(".id_" + excersionId).remove()
     })
   })
+
 })
 
 function showShips(info) {
@@ -58,4 +51,20 @@ function showShips(info) {
     ships.push(theShip)
   })
   return ships
+}
+
+
+function url(passenger, excersion, pe) {
+  var url = "/passengers/" + passenger + "/excursions/" + excersion + "/passenger_excursion/" + pe
+  console.log(url)
+  // debugger
+  var data = {comment: $("#passenger_excursion_comment").val()}
+  var posting = $.post(url, data)
+  var $excursionId = excersion
+  posting.done(function (info) {
+    console.log(info)
+    // debugger
+    $(".edit_passenger_excursion").hide()
+    $(".childId_" + $excursionId).text(info.comment)
+  })
 }
