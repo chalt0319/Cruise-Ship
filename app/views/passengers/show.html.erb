@@ -1,4 +1,4 @@
-<h1>Welcome <%=@passenger.name%>!</h1>
+<h1 class="passenger_name" data-id="<%=@passenger.id%>">Welcome <%=@passenger.name%>!</h1>
 
 <h3>Your Ship is: <%=@passenger.ship.name%></h3>
 
@@ -11,4 +11,7 @@
 
 <h3>Total Excursion Time: <%=pluralize_hours(@passenger)%>.</h3>
 
-<%=link_to("Add Excursion", new_passenger_excursion_path(@passenger))%><br>
+<div class="add_excursion_div">
+  <a class="add_excursion" href="#">Add Excursion</a>
+  <!-- <%=link_to("Add Excursion", new_passenger_excursion_path(@passenger))%><br> -->
+</div>

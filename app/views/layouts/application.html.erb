@@ -10,7 +10,7 @@
   </head>
 
   <div class="header">
-    <a class="links" href="<%=root_path%>">Home</a>
+    <a id="home_link" class="links" href="<%=root_path%>">Home</a>
     <%if logged_in? == true %>
     <a class="links" href="<%=current_user_path%>"><%=current_user%></a>
     <a class="links" href="<%=logout_path%>">Logout</a>

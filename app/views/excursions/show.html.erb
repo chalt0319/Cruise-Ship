@@ -3,4 +3,4 @@
 <h3>Duration: <%=excursion_pluralize(@excursion)%>.</h3>
 <h3>Port: <%=@excursion.port.location%></h3>
 
-<%=link_to("Back to 'Add Excursions'", new_passenger_excursion_path(@passenger))%>
+<%=link_to("Back", passenger_path(@passenger))%>

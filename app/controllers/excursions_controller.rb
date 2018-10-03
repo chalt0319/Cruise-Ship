@@ -5,6 +5,7 @@ class ExcursionsController < ApplicationController
       @excursion = Excursion.new
       find_passenger
       @excursions = Excursion.all
+      render :layout => false
     else
       redirect_to root_path
     end

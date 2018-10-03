@@ -18,6 +18,7 @@ class ShipsController < ApplicationController
 
   def index
     @ships = Ship.all
+    render json: @ships 
   end
 
   def show
@@ -38,7 +39,7 @@ class ShipsController < ApplicationController
     @ship = Ship.find(params[:id])
     @ship.delete
     redirect_to captain_path(current_user_instance)
-  end 
+  end
 
   private
 
