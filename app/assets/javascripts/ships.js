@@ -65,6 +65,7 @@ function url(passenger, excersion, pe) {
     console.log(info)
     // debugger
     $(".edit_passenger_excursion").hide()
+    $(".id_" + $excursionId).append('<ul><li class="childId_' + $excursionId + '">' + info.comment + '</li>')
     $(".childId_" + $excursionId).text(info.comment)
   })
 }
