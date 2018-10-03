@@ -4,7 +4,6 @@
 
 $(function () {
   $(".learn_link").click(function (e) {
-    debugger
     e.preventDefault()
     $.get("/ships", function (response) {
       $(".all_ships").text("")
@@ -13,13 +12,32 @@ $(function () {
     })
   })
   $(".add_excursion").click(function (e) {
-    debugger
     e.preventDefault()
     var $link = $(this)
     var passengerId = $(".passenger_name").data("id")
     $.get("/passengers/" + passengerId + "/excursions/new", function (response) {
       // console.log(response)
       $link.before(response)
+    })
+  })
+  $(".add_comment").click(function (e) {
+    e.preventDefault()
+    var url = $(this).data("url")
+    var excersionId = $(this).data("id")
+    // debugger
+    $.get(url, function (response) {
+      $(".id_" + excersionId).append(response)
+    })
+  })
+  $(".delete_link").click(function (e) {
+    e.preventDefault()
+    var excersionId = $(this).data("id")
+    var url = $(this).data("deleteurl")
+    // debugger
+    $.get(url, function (response) {
+      // debugger
+      $(".childId_" + excersionId).remove()
+      $(".id_" + excersionId).remove()
     })
   })
 })

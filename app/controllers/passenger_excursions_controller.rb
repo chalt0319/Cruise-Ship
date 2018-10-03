@@ -5,6 +5,7 @@ class PassengerExcursionsController < ApplicationController
     @excursion = Excursion.find_by(id: params[:excursion_id])
     @passenger = Passenger.find_by(id: params[:passenger_id])
     @passenger_excursion = PassengerExcursion.find_passenger_excursion(@passenger, @excursion)[0]
+    render :layout => false
   end
 
   def update
@@ -12,6 +13,7 @@ class PassengerExcursionsController < ApplicationController
     @passenger_excursion = PassengerExcursion.find_by(id: params[:id])
     @passenger_excursion.update(the_params)
     redirect_to passenger_path(@passenger)
+    # render :layout => false
   end
 
   def show
