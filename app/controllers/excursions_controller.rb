@@ -35,9 +35,9 @@ class ExcursionsController < ApplicationController
       find_passenger
       @passenger.excursions.delete(@excursion)
       @hours = pluralize_hours(@passenger)
-      binding.pry
+      # binding.pry
       # show_passenger_page
-      render :plain => "yes"
+      render json: @hours
     else
       redirect_to root_path
     end
@@ -62,7 +62,18 @@ class ExcursionsController < ApplicationController
   end
 
   def pluralize_hours(passenger)
-    "hour".pluralize(passenger.total_excursion_time)
+    time = passenger.total_excursion_time
+    hours = pluralize(passenger.total_excursion_time, "hour")
+    object = {time: time, hours: hours}
+    object
+  end
+
+  def pluralize(number, word)
+    if number == 0 || number > 1
+      word + "s"
+    else
+      word
+    end
   end
 
 end

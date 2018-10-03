@@ -35,7 +35,9 @@ $(function () {
     var url = $(this).data("deleteurl")
     // debugger
     $.get(url, function (response) {
+      console.log(response)
       // debugger
+      $(".total_time").text("Total Excursion Time: " + response.time + " " + response.hours + ".")
       $(".childId_" + excersionId).remove()
       $(".id_" + excersionId).remove()
     })

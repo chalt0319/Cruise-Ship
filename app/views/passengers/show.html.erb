@@ -8,11 +8,7 @@
 
 <%= render partial: "excursions", locals: {excursions: @excursions, passenger: @passenger, passenger_excursion: @passenger_excursion} %>
 
-<%if @hours%>
-  <h3>Total Excursion Time: <%=@hours%>.</h3>
-<%else%>
-  <h3>Total Excursion Time: <%=pluralize_hours(@passenger)%>.</h3>
-<%end%>
+<h3 class="total_time">Total Excursion Time: <%=pluralize_hours(@passenger)%>.</h3>
 
 <div class="add_excursion_div">
   <a class="add_excursion" href="#">Add Excursion</a>
