@@ -58,7 +58,6 @@ function addComment(passenger, excursion, pe) {
  var url = `/passengers/${passenger}/excursions/${excursion}/passenger_excursions/${pe}/edit`
  $.get(url, function (response) {
    $(".id_" + excursion).append(response)
-   // $(".comment_text_area").hide()
  })
 }
 
