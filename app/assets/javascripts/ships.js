@@ -28,7 +28,7 @@ $(function () {
     var excersionId = $(this).data("id")
     var url = $(this).data("deleteurl")
     $.get(url, function (response) {
-      $(".total_time").text("Total Excursion Time: " + response.time + " " + response.hours + ".")
+      $(".total_time").text(`Total Excursion Time: ${response.time} ${response.hours}.`)
       $(".childId_" + excersionId).remove()
       $(".id_" + excersionId).remove()
     })
@@ -55,33 +55,33 @@ function showShips(info) {
 }
 
 function addComment(passenger, excursion, pe) {
- var url = "/passengers/" + passenger + "/excursions/" + excursion + "/passenger_excursions/" + pe + "/edit"
+ var url = `/passengers/${passenger}/excursions/${excursion}/passenger_excursions/${pe}/edit`
  $.get(url, function (response) {
    $(".id_" + excursion).append(response)
+   // $(".comment_text_area").hide()
  })
 }
 
 
-function url(passenger, excursion, pe) {
-  var url = "/passengers/" + passenger + "/excursions/" + excursion + "/passenger_excursion/" + pe
-  console.log(url)
-
-  var data = {comment: $(".comment_text_area").val()}
+function submitComment(passenger, excursion, pe) {
+  var url = `/passengers/${passenger}/excursions/${excursion}/passenger_excursion/${pe}`
+  var excursionId = excursion
+  var data = {comment: $(`.comment_text_area_${excursionId}`).val()}
   var posting = $.post(url, data)
-  var $excursionId = excursion
+
   posting.done(function (info) {
     console.log(info)
     $(".edit_passenger_excursion").hide()
-    // $(".id_" + $excursionId).append('<ul><li class="childId_' + $excursionId + '">' + info.comment + '</li>')
-    $(".childId_" + $excursionId).text("- " + info.comment)
+    $(".childId_" + excursionId).text("- " + info.comment)
+    $(".add_comment_form").hide()
   })
 }
 
 function showExcursion(passenger, e_id, e_title) {
-  var url = "/passengers/" + passenger + "/excursions/" + e_id
+  var url = `/passengers/${passenger}/excursions/${e_id}`
   $.get(url, function (response) {
     $(".excursion_id_" + e_id).after(response)
-    $(".excursion_id_" + e_id).before('<span class="excursion_title">' + e_title + '</span>')
+    $(".excursion_id_" + e_id).before(`<span class="excursion_title">${e_title}</span>`)
     $(".excursion_id_" + e_id).hide()
   })
 }
@@ -96,7 +96,7 @@ function learnLink() {
 
 function addExcursion() {
   var passengerId = $(".passenger_name").data("id")
-  $.get("/passengers/" + passengerId + "/excursions/new", function (response) {
+  $.get(`/passengers/${passengerId}/excursions/new`, function (response) {
     $(".add_excursion").before(response)
   })
 }
