@@ -23,6 +23,8 @@ Rails.application.routes.draw do
 
   post '/passengers/:passenger_id/excursions/:excursion_id/passenger_excursion/:id' => "passenger_excursions#update"
 
+  get '/passengers/:passenger_id/excursions/:excursion_id/passenger_excursions/:id/delete' => "passenger_excursions#delete"
+
   resources :ships, only: [:index, :new, :create, :edit, :update, :destroy]
 
   get '/ships/largest_ship' => "ships#show"

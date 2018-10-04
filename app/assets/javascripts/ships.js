@@ -72,8 +72,16 @@ function submitComment(passenger, excursion, pe) {
   posting.done(function (info) {
     console.log(info)
     $(".edit_passenger_excursion").hide()
-    $(".childId_" + excursionId).text("- " + info.comment)
+    $(".childId_" + excursionId).text("")
+    $(".childId_" + excursionId).append("- " + info.comment + " - " + `<span class="link comment_${info.id}" onclick="deleteComment(${info.passenger_id}, ${info.excursion_id}, ${info.id})">Delete</span>`)
     $(".add_comment_form").hide()
+  })
+}
+
+function deleteComment(p, e, pe) {
+  var url = `/passengers/${p}/excursions/${e}/passenger_excursions/${pe}/delete`
+  $.get(url, function (response) {
+    $(".childId_" + e).empty()
   })
 }
 
