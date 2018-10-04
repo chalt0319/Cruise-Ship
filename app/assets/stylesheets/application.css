@@ -59,3 +59,12 @@ a:visited {
   opacity: 0.2;
   z-index: -1;
 }
+
+.link {
+  color: blue;
+}
+.link:hover {
+  color: blue;
+  text-decoration: underline;
+  cursor: pointer;
+}

@@ -1,6 +1,4 @@
-<h1><%=@excursion.title%></h1>
-
-<h3>Duration: <%=excursion_pluralize(@excursion)%>.</h3>
-<h3>Port: <%=@excursion.port.location%></h3>
-
-<%=link_to("Back", passenger_path(@passenger))%>
+<ul>
+  <li>Duration: <%=excursion_pluralize(@excursion)%>.</li>
+  <li>Port: <%=@excursion.port.location%></li>
+</ul>

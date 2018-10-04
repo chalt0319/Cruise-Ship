@@ -27,6 +27,7 @@ class ExcursionsController < ApplicationController
   def show
     find_excursion
     find_passenger
+    render :layout => false
   end
 
   def edit

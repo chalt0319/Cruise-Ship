@@ -16,14 +16,14 @@ $(function () {
       $link.before(response)
     })
   })
-  $(".add_comment").click(function (e) {
-    e.preventDefault()
-    var url = $(this).data("url")
-    var excersionId = $(this).data("id")
-    $.get(url, function (response) {
-      $(".id_" + excersionId).append(response)
-    })
-  })
+  // $(".add_comment").click(function (e) {
+  //   e.preventDefault()
+  //   var url = $(this).data("url")
+  //   var excersionId = $(this).data("id")
+  //   $.get(url, function (response) {
+  //     $(".id_" + excersionId).append(response)
+  //   })
+  // })
   $(".delete_link").click(function (e) {
     e.preventDefault()
     var excersionId = $(this).data("id")
@@ -34,7 +34,9 @@ $(function () {
       $(".id_" + excersionId).remove()
     })
   })
-
+  $(".excursion_link").click(function (e) {
+    e.preventDefault()
+  })
 })
 
 function showShips(info) {
@@ -53,19 +55,33 @@ function showShips(info) {
   return ships
 }
 
+function addComment(passenger, excursion, pe) {
+ var url = "/passengers/" + passenger + "/excursions/" + excursion + "/passenger_excursions/" + pe + "/edit"
+ $.get(url, function (response) {
+   $(".id_" + excursion).append(response)
+ })
+}
 
-function url(passenger, excersion, pe) {
-  var url = "/passengers/" + passenger + "/excursions/" + excersion + "/passenger_excursion/" + pe
+
+function url(passenger, excursion, pe) {
+  var url = "/passengers/" + passenger + "/excursions/" + excursion + "/passenger_excursion/" + pe
   console.log(url)
-  // debugger
+
   var data = {comment: $("#passenger_excursion_comment").val()}
   var posting = $.post(url, data)
-  var $excursionId = excersion
+  var $excursionId = excursion
   posting.done(function (info) {
     console.log(info)
-    // debugger
     $(".edit_passenger_excursion").hide()
-    $(".id_" + $excursionId).append('<ul><li class="childId_' + $excursionId + '">' + info.comment + '</li>')
-    $(".childId_" + $excursionId).text(info.comment)
+    // $(".id_" + $excursionId).append('<ul><li class="childId_' + $excursionId + '">' + info.comment + '</li>')
+    $(".childId_" + $excursionId).text("- " + info.comment)
   })
+}
+
+function showExcursion(passenger, e) {
+  var url = "/passengers/" + passenger + "/excursions/" + e
+  $.get(url, function (response) {
+    $(".excursion_id_" + e).after(response)
+  })
+
 }
