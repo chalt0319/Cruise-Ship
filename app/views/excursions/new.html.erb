@@ -5,7 +5,7 @@
 <h4>Click the below links to learn more about each Excursion:</h4>
 
 <%@excursions.each do |e|%>
-  <span class=" link excursion_link excursion_id_<%=e.id%>" onclick="showExcursion(<%=@passenger.id%>, <%=e.id%>)"><%=e.title%></span><br>
+    <div class=" link excursion_link excursion_id_<%=e.id%>" onclick="showExcursion(<%=@passenger.id%>, <%=e.id%>, '<%=e.title%>')"><%=e.title%></div>
 <!-- <%=link_to(e.title, passenger_excursion_path(@passenger, e))%><br> -->
 <%end%>
 <br><br>

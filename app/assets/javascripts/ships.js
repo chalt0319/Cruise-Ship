@@ -66,7 +66,7 @@ function url(passenger, excursion, pe) {
   var url = "/passengers/" + passenger + "/excursions/" + excursion + "/passenger_excursion/" + pe
   console.log(url)
 
-  var data = {comment: $("#passenger_excursion_comment").val()}
+  var data = {comment: $(".comment_text_area").val()}
   var posting = $.post(url, data)
   var $excursionId = excursion
   posting.done(function (info) {
@@ -77,10 +77,12 @@ function url(passenger, excursion, pe) {
   })
 }
 
-function showExcursion(passenger, e) {
-  var url = "/passengers/" + passenger + "/excursions/" + e
+function showExcursion(passenger, e_id, e_title) {
+  var url = "/passengers/" + passenger + "/excursions/" + e_id
   $.get(url, function (response) {
-    $(".excursion_id_" + e).after(response)
+    $(".excursion_id_" + e_id).after(response)
+    $(".excursion_id_" + e_id).before('<span class="excursion_title">' + e_title + '</span>')
+    $(".excursion_id_" + e_id).hide()
   })
 }
 
