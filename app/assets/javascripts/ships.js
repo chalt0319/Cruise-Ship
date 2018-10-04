@@ -1,21 +1,20 @@
 
 $(function () {
-  $(".learn_link").click(function (e) {
-    e.preventDefault()
-    $.get("/ships", function (response) {
-      $(".all_ships").text("")
-      $(".all_ships").append(showShips(response).join(""))
-      $(".largest_ship").append('<a href="/ships/largest_ship">Largest Ship</a>')
-    })
-  })
-  $(".add_excursion").click(function (e) {
-    e.preventDefault()
-    var $link = $(this)
-    var passengerId = $(".passenger_name").data("id")
-    $.get("/passengers/" + passengerId + "/excursions/new", function (response) {
-      $link.before(response)
-    })
-  })
+  // $(".learn_link").click(function (e) {
+  //   $.get("/ships", function (response) {
+  //     $(".all_ships").text("")
+  //     $(".all_ships").append(showShips(response).join(""))
+  //     $(".largest_ship").append('<a href="/ships/largest_ship">Largest Ship</a>')
+  //   })
+  // })
+  // $(".add_excursion").click(function (e) {
+  //   e.preventDefault()
+  //   var $link = $(this)
+  //   var passengerId = $(".passenger_name").data("id")
+  //   $.get("/passengers/" + passengerId + "/excursions/new", function (response) {
+  //     $link.before(response)
+  //   })
+  // })
   // $(".add_comment").click(function (e) {
   //   e.preventDefault()
   //   var url = $(this).data("url")
@@ -83,5 +82,19 @@ function showExcursion(passenger, e) {
   $.get(url, function (response) {
     $(".excursion_id_" + e).after(response)
   })
+}
 
+function learnLink() {
+  $.get("/ships", function (response) {
+    $(".all_ships").text("")
+    $(".all_ships").append(showShips(response).join(""))
+    $(".largest_ship").append('<a href="/ships/largest_ship">Largest Ship</a>')
+  })
+}
+
+function addExcursion() {
+  var passengerId = $(".passenger_name").data("id")
+  $.get("/passengers/" + passengerId + "/excursions/new", function (response) {
+    $(".add_excursion").before(response)
+  })
 }
