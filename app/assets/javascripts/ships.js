@@ -65,7 +65,8 @@ function addComment(passenger, excursion, pe) {
 function submitComment(passenger, excursion, pe) {
   var url = `/passengers/${passenger}/excursions/${excursion}/passenger_excursion/${pe}`
   var excursionId = excursion
-  var data = {comment: $(`.comment_text_area_${excursionId}`).val()}
+  var data = {comment: $(`.comment_text_area_${excursionId}`).last().val()}
+  debugger
   var posting = $.post(url, data)
 
   posting.done(function (info) {
@@ -80,7 +81,7 @@ function submitComment(passenger, excursion, pe) {
 function deleteComment(p, e, pe) {
   var url = `/passengers/${p}/excursions/${e}/passenger_excursions/${pe}/delete`
   $.get(url, function (response) {
-    $(".childId_" + e).empty()
+    $(".childId_" + e).text("")
   })
 }
 
