@@ -4,6 +4,8 @@
       <li class="excursion_info id_<%=e.id%>"><%=e.title%> - <%=e.port.location%> - <%=excursion_pluralize(e)%> - <span class="link add_comment" onclick="addComment(<%=passenger.id%>, <%=e.id%>, <%=find_passenger_excursion(passenger, e)[0].id%>)">Add Comment</span> - <a class="delete_link" data-id="<%=e.id%>" data-deleteurl="/passengers/<%=passenger.id%>/excursions/<%=e.id%>/edit" href="#">Delete</a></li>
         <div class="divChild_<%=e.id%>">
           <span class="childId_<%=e.id%>">- <%=find_passenger_excursion(passenger, e)[0].comment%></span>
+          <span> - </span>
+          <span class="link comment_<%=find_passenger_excursion(passenger, e)[0].id%>" onclick="deleteComment(<%=passenger.id%>, <%=e.id%>, <%=find_passenger_excursion(passenger, e)[0].id%>)">Delete</span>
         </div>
       <%else%>
         <li class="excursion_info id_<%=e.id%>"><%=e.title%> - <%=e.port.location%> - <%=excursion_pluralize(e)%> - <span class="link add_comment" data-id="<%=e.id%>" onclick="addComment(<%=passenger.id%>, <%=e.id%>, <%=find_passenger_excursion(passenger, e)[0].id%>)">Add Comment</span> - <a class="delete_link" data-id="<%=e.id%>" data-deleteurl="/passengers/<%=passenger.id%>/excursions/<%=e.id%>/edit" href="#">Delete</a></li>
