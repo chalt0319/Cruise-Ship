@@ -75,14 +75,16 @@ a:visited {
 }
 
 .ship_div {
+  display: inline-block;
   border-style: solid;
   border-width: 3px;
   border-color: #d9d9d9;
   background-color: #ffffff;
   border-radius: 10px;
-  width: 35%;
+  width: 46%;
   padding-left: 30px;
   margin-bottom: 10px;
+  margin-left: 10px;
 }
 
 footer {
@@ -94,6 +96,11 @@ footer {
 }
 
 .largest_ship {
-  /* margin: 30px, 0; */
   padding-bottom: 40px;
+}
+
+.ships_header {
+  margin-left: auto;
+  margin-right: auto;
+  width: 250px;
 }
