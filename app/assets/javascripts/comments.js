@@ -9,7 +9,7 @@ function submitComment(passenger, excursion, pe) {
   let url = `/passengers/${passenger}/excursions/${excursion}/passenger_excursion/${pe}`
   let excursionId = excursion
   let data = {passenger_id: passenger, excursion_id: excursion, comment: $(`.comment_text_area_${excursionId}`).last().val()}
-  var posting = $.post(url, data)
+  let posting = $.post(url, data)
 
   posting.done(function (info) {
     $(".edit_passenger_excursion").hide()

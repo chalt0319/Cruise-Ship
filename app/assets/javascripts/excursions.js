@@ -1,5 +1,5 @@
 function addExcursion() {
-  var passengerId = $(".passenger_name").data("id")
+  let passengerId = $(".passenger_name").data("id")
   $.get(`/passengers/${passengerId}/excursions/new`, function (response) {
     $(".add_excursion").before(response)
     $(".add_excursion").remove()
