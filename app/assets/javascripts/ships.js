@@ -1,28 +1,5 @@
 
 $(function () {
-  // $(".learn_link").click(function (e) {
-  //   $.get("/ships", function (response) {
-  //     $(".all_ships").text("")
-  //     $(".all_ships").append(showShips(response).join(""))
-  //     $(".largest_ship").append('<a href="/ships/largest_ship">Largest Ship</a>')
-  //   })
-  // })
-  // $(".add_excursion").click(function (e) {
-  //   e.preventDefault()
-  //   var $link = $(this)
-  //   var passengerId = $(".passenger_name").data("id")
-  //   $.get("/passengers/" + passengerId + "/excursions/new", function (response) {
-  //     $link.before(response)
-  //   })
-  // })
-  // $(".add_comment").click(function (e) {
-  //   e.preventDefault()
-  //   var url = $(this).data("url")
-  //   var excersionId = $(this).data("id")
-  //   $.get(url, function (response) {
-  //     $(".id_" + excersionId).append(response)
-  //   })
-  // })
   $(".delete_link").click(function (e) {
     e.preventDefault()
     var excersionId = $(this).data("id")
@@ -47,7 +24,6 @@ class Time {
   totalTime() {
     return `Total Excursion Time: ${this.time} ${this.hours}.`
   }
-
 }
 
 function showShips(info) {
@@ -118,5 +94,6 @@ function addExcursion() {
   var passengerId = $(".passenger_name").data("id")
   $.get(`/passengers/${passengerId}/excursions/new`, function (response) {
     $(".add_excursion").before(response)
+    $(".add_excursion").remove()
   })
 }
