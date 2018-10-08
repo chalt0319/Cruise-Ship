@@ -6,6 +6,5 @@
 
 <%@excursions.each do |e|%>
     <div class=" link excursion_link excursion_id_<%=e.id%>" onclick="showExcursion(<%=@passenger.id%>, <%=e.id%>, '<%=e.title%>')"><%=e.title%></div>
-<!-- <%=link_to(e.title, passenger_excursion_path(@passenger, e))%><br> -->
 <%end%>
 <br><br>

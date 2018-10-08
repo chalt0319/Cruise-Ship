@@ -14,7 +14,7 @@ function submitComment(passenger, excursion, pe) {
   posting.done(function (info) {
     $(".edit_passenger_excursion").hide()
     $(".commentList_" + excursionId).text("")
-    $(".commentList_" + excursionId).append(`<li class="childId_${info.id}">` + info.comment + " - " + `<span class="link comment_${info.id}" onclick="deleteComment(${info.passenger_id}, ${info.excursion_id}, ${info.id})">Delete</span>` + "</li>")
+    $(".commentList_" + excursionId).append(`<li class="comment_${info.id}">` + info.comment + " - " + `<span class="link" onclick="deleteComment(${info.passenger_id}, ${info.excursion_id}, ${info.id})">Delete</span>` + "</li>")
     $(".add_comment_form").hide()
   })
 }
@@ -22,6 +22,6 @@ function submitComment(passenger, excursion, pe) {
 function deleteComment(p, e, pe) {
   var url = `/passengers/${p}/excursions/${e}/passenger_excursions/${pe}/delete`
   $.get(url, function (response) {
-    $(".childId_" + pe).remove()
+    $(".comment_" + pe).remove()
   })
 }

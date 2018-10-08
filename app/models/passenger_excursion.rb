@@ -6,7 +6,7 @@ class PassengerExcursion < ApplicationRecord
     self.order("id DESC").limit(1)
   end
 
-  def self.find_passenger_excursion(passenger, excursion)
+  def self.find_pe(passenger, excursion)
     where("passenger_id = ? AND excursion_id = ?", passenger.id, excursion.id)
   end
 end

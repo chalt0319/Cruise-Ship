@@ -7,7 +7,7 @@ function learnLink() {
 }
 
 function showShips(info) {
-  let ships = ['<h1>All Available Ships:</h1>']
+  let ships = ['<h2>All Available Ships:</h2>']
   info.forEach(function (ship) {
     let theShip = "<h3>" + ship.name + "</h3>"
     + "<ul>"

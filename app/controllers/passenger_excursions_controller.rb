@@ -3,7 +3,7 @@ class PassengerExcursionsController < ApplicationController
   def edit
     @excursion = Excursion.find_by(id: params[:excursion_id])
     @passenger = Passenger.find_by(id: params[:passenger_id])
-    @passenger_excursion = PassengerExcursion.find_passenger_excursion(@passenger, @excursion)[0]
+    @passenger_excursion = PassengerExcursion.find_pe(@passenger, @excursion)[0]
     render :layout => false
   end
 
@@ -22,7 +22,6 @@ class PassengerExcursionsController < ApplicationController
   end
 
   def delete
-    @passenger = Passenger.find_by(id: params[:passenger_id])
     @passenger_excursion = PassengerExcursion.find_by(id: params[:id])
     @passenger_excursion.update(comment: "")
     render json: @passenger_excursion
