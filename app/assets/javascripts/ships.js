@@ -7,7 +7,7 @@ $(function () {
     $.get(url, function (r) {
       let theTime = new Time(r.time, r.hours)
       $(".total_time").text(theTime.totalTime())
-      $(".childId_" + excersionId).remove()
+      $(".commentList_" + excersionId).remove()
       $(".id_" + excersionId).remove()
     })
   })
@@ -53,15 +53,14 @@ function addComment(passenger, excursion, pe) {
 function submitComment(passenger, excursion, pe) {
   var url = `/passengers/${passenger}/excursions/${excursion}/passenger_excursion/${pe}`
   var excursionId = excursion
-  var data = {comment: $(`.comment_text_area_${excursionId}`).last().val()}
-  debugger
+  var data = {passenger_id: passenger, excursion_id: excursion, comment: $(`.comment_text_area_${excursionId}`).last().val()}
   var posting = $.post(url, data)
 
   posting.done(function (info) {
     console.log(info)
     $(".edit_passenger_excursion").hide()
-    $(".childId_" + excursionId).text("")
-    $(".childId_" + excursionId).append("- " + info.comment + " - " + `<span class="link comment_${info.id}" onclick="deleteComment(${info.passenger_id}, ${info.excursion_id}, ${info.id})">Delete</span>`)
+    $(".commentList_" + excursionId).text("")
+    $(".commentList_" + excursionId).append(`<li class="childId_${info.id}">` + info.comment + " - " + `<span class="link comment_${info.id}" onclick="deleteComment(${info.passenger_id}, ${info.excursion_id}, ${info.id})">Delete</span>` + "</li>")
     $(".add_comment_form").hide()
   })
 }
@@ -69,7 +68,7 @@ function submitComment(passenger, excursion, pe) {
 function deleteComment(p, e, pe) {
   var url = `/passengers/${p}/excursions/${e}/passenger_excursions/${pe}/delete`
   $.get(url, function (response) {
-    $(".childId_" + e).text("")
+    $(".childId_" + pe).remove()
   })
 }
 

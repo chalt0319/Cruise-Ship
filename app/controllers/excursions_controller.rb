@@ -15,6 +15,7 @@ class ExcursionsController < ApplicationController
     find_excursion
     find_passenger
     if !@passenger.excursions.include?(@excursion)
+      # binding.pry
       @passenger.excursions << @excursion
       @passenger.save
       show_passenger_page

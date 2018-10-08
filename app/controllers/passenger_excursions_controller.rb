@@ -1,5 +1,17 @@
 class PassengerExcursionsController < ApplicationController
 
+  # def new
+  #   @excursion = Excursion.find_by(id: params[:excursion_id])
+  #   @passenger = Passenger.find_by(id: params[:passenger_id])
+  #   render :layout => false
+  # end
+  #
+  # def create
+  #   @excursion = Excursion.find_by(id: params[:excursion_id])
+  #   @passenger = Passenger.find_by(id: params[:passenger_id])
+  #   @passenger_excursion = PassengerExcursion.create(the_params)
+  #   render json: @passenger_excursion
+  # end
 
   def edit
     @excursion = Excursion.find_by(id: params[:excursion_id])
@@ -9,6 +21,7 @@ class PassengerExcursionsController < ApplicationController
   end
 
   def update
+    # binding.pry
     @passenger = Passenger.find_by(id: params[:passenger_id])
     @excursion = Excursion.find_by(id: params[:excursion_id])
     @passenger_excursion = PassengerExcursion.find_by(id: params[:id])
