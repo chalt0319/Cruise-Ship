@@ -55,6 +55,7 @@ function submitComment(passenger, excursion, pe) {
   var excursionId = excursion
   var data = {passenger_id: passenger, excursion_id: excursion, comment: $(`.comment_text_area_${excursionId}`).last().val()}
   var posting = $.post(url, data)
+  debugger
 
   posting.done(function (info) {
     console.log(info)

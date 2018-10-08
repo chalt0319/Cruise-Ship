@@ -15,7 +15,6 @@ class ExcursionsController < ApplicationController
     find_excursion
     find_passenger
     if !@passenger.excursions.include?(@excursion)
-      # binding.pry
       @passenger.excursions << @excursion
       @passenger.save
       show_passenger_page
@@ -37,8 +36,6 @@ class ExcursionsController < ApplicationController
       find_passenger
       @passenger.excursions.delete(@excursion)
       @hours = pluralize_hours(@passenger)
-      # binding.pry
-      # show_passenger_page
       render json: @hours
     else
       redirect_to root_path
