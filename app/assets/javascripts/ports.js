@@ -1,5 +1,5 @@
 function showPorts(passenger) {
-  url = `/passengers/${passenger}/ports`
+  let url = `/passengers/${passenger}/ports`
   $.get(url, function (ports) {
     $(".ports_link").hide()
     $(".ports").append("<h3>Your Ports:</h3>")

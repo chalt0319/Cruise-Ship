@@ -1,14 +1,14 @@
 function addComment(passenger, excursion, pe) {
- var url = `/passengers/${passenger}/excursions/${excursion}/passenger_excursions/${pe}/edit`
+ let url = `/passengers/${passenger}/excursions/${excursion}/passenger_excursions/${pe}/edit`
  $.get(url, function (response) {
    $(".id_" + excursion).append(response)
  })
 }
 
 function submitComment(passenger, excursion, pe) {
-  var url = `/passengers/${passenger}/excursions/${excursion}/passenger_excursion/${pe}`
-  var excursionId = excursion
-  var data = {passenger_id: passenger, excursion_id: excursion, comment: $(`.comment_text_area_${excursionId}`).last().val()}
+  let url = `/passengers/${passenger}/excursions/${excursion}/passenger_excursion/${pe}`
+  let excursionId = excursion
+  let data = {passenger_id: passenger, excursion_id: excursion, comment: $(`.comment_text_area_${excursionId}`).last().val()}
   var posting = $.post(url, data)
 
   posting.done(function (info) {
@@ -20,7 +20,7 @@ function submitComment(passenger, excursion, pe) {
 }
 
 function deleteComment(p, e, pe) {
-  var url = `/passengers/${p}/excursions/${e}/passenger_excursions/${pe}/delete`
+  let url = `/passengers/${p}/excursions/${e}/passenger_excursions/${pe}/delete`
   $.get(url, function (response) {
     $(".comment_" + pe).remove()
   })

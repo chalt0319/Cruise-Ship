@@ -7,7 +7,7 @@ function addExcursion() {
 }
 
 function showExcursion(passenger, e_id, e_title) {
-  var url = `/passengers/${passenger}/excursions/${e_id}`
+  let url = `/passengers/${passenger}/excursions/${e_id}`
   $.get(url, function (response) {
     $(".excursion_id_" + e_id).after(response)
     $(".excursion_id_" + e_id).before(`<span class="excursion_title">${e_title}</span>`)
@@ -16,8 +16,8 @@ function showExcursion(passenger, e_id, e_title) {
 }
 
 function deleteExcursion(p, e) {
-  var excersionId = e
-  var url = `/passengers/${p}/excursions/${e}/edit`
+  let excersionId = e
+  let url = `/passengers/${p}/excursions/${e}/edit`
   $.get(url, function (r) {
     let theTime = new Time(r.time, r.hours)
     $(".total_time").text(theTime.totalTime())
