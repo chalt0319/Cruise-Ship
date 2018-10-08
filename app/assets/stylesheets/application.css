@@ -52,12 +52,13 @@ a:visited {
 }
 
 .style_image {
-  position: absolute;
+  position: fixed;
   left: 0;
   top: 0;
   width: 100%;
   opacity: 0.2;
   z-index: -1;
+  height: 100%;
 }
 
 .link {
@@ -71,4 +72,28 @@ a:visited {
 
 .excursion_title {
   color: blue;
+}
+
+.ship_div {
+  border-style: solid;
+  border-width: 3px;
+  border-color: #d9d9d9;
+  background-color: #ffffff;
+  border-radius: 10px;
+  width: 35%;
+  padding-left: 30px;
+  margin-bottom: 10px;
+}
+
+footer {
+  width: 100%;
+  background-color: white;
+  position: fixed;
+  bottom: 0;
+  padding-left: 10px;
+}
+
+.largest_ship {
+  /* margin: 30px, 0; */
+  padding-bottom: 40px;
 }
