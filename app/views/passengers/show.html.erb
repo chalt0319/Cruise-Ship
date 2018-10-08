@@ -8,6 +8,10 @@
 
 <%= render partial: "excursions", locals: {excursions: @excursions, passenger: @passenger, passenger_excursion: @passenger_excursion} %>
 
+<div class="ports" onclick="showPorts(<%=@passenger.id%>)">
+  <span class="link ports_link">Show Ports</span>
+</div>
+
 <h3 class="total_time">Total Excursion Time: <%=pluralize_hours(@passenger)%>.</h3>
 
 <div class="add_excursion_div">

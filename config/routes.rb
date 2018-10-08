@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   post '/fb_login' => "passengers#fb_create"
   get '/auth/facebook/callback' => 'passengers#create'
 
+  get '/passengers/:passenger_id/ports' => 'passengers#ports'
   post '/passengers/:passenger_id/excursions/:excursion_id/passenger_excursion/:id' => "passenger_excursions#update"
 
   get '/passengers/:passenger_id/excursions/:excursion_id/passenger_excursions/:id/delete' => "passenger_excursions#delete"
