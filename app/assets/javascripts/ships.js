@@ -27,8 +27,9 @@ $(function () {
     e.preventDefault()
     var excersionId = $(this).data("id")
     var url = $(this).data("deleteurl")
-    $.get(url, function (response) {
-      $(".total_time").text(`Total Excursion Time: ${response.time} ${response.hours}.`)
+    $.get(url, function (r) {
+      let theTime = new Time(r.time, r.hours)
+      $(".total_time").text(theTime.totalTime())
       $(".childId_" + excersionId).remove()
       $(".id_" + excersionId).remove()
     })
@@ -37,6 +38,17 @@ $(function () {
     e.preventDefault()
   })
 })
+
+class Time {
+  constructor(time, hours) {
+    this.time = time
+    this.hours = hours
+  }
+  totalTime() {
+    return `Total Excursion Time: ${this.time} ${this.hours}.`
+  }
+
+}
 
 function showShips(info) {
   let ships = ['<h1>All Available Ships:</h1>']
