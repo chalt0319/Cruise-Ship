@@ -4,7 +4,7 @@ function showPorts(passenger) {
     $(".ports_link").hide()
     $(".ports").append("<h3>Your Ports:</h3>")
     ports.forEach(function (port) {
-      $(".ports").append(`<span>${port.location}</span><br>`)
+      $(".ports").append(`<span>${port}</span><br>`)
     })
   })
 }

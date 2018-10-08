@@ -45,7 +45,9 @@ class PassengersController < ApplicationController
   def ports
     @passenger = Passenger.find(params[:passenger_id])
     @ports = @passenger.ports
-    render json: @ports
+    @uniq_ports = @ports.map {|port| port.location}
+    @uniq_ports = @uniq_ports.uniq
+    render json: @uniq_ports
   end
 
   def login
