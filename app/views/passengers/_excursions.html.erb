@@ -1,7 +1,7 @@
 <ul>
   <%excursions.each do |e|%>
     <% if find_pe(passenger, e)[0].comment != "" && find_pe(passenger, e)[0].comment != nil%>
-      <li class="excursion_info id_<%=e.id%>"><%=e.title%> - <%=e.port.location%> - <%=excursion_pluralize(e)%> - <span class="link add_comment" onclick="addComment(<%=passenger.id%>, <%=e.id%>, <%=find_pe(passenger, e)[0].id%>)">Add Comment</span> - <span class="link delete_link" onclick="deleteExcursion(<%=passenger.id%>, <%=e.id%>)">Delete</span> </li>
+      <li class="excursion_info id_<%=e.id%>"><%=e.title%> - <%=e.port.location%> - <%=excursion_pluralize(e)%> - <span class="link add_comment" onclick="addComment(<%=passenger.id%>, <%=e.id%>, <%=find_pe(passenger, e)[0].id%>)">Edit Comment</span> - <span class="link delete_link" onclick="deleteExcursion(<%=passenger.id%>, <%=e.id%>)">Delete</span> </li>
         <div class="divChild_<%=e.id%>">
           <ul>
             <div class="commentList_<%=e.id%>">
