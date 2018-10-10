@@ -11,7 +11,7 @@
 
   <div class="header">
     <a id="home_link" class="links" href="<%=root_path%>">Home</a>
-    <%if logged_in? == true %>
+    <%if logged_in?%>
     <a class="links" href="<%=current_user_path%>"><%=current_user%></a>
     <a class="links" href="<%=logout_path%>">Logout</a>
     <%else %>
@@ -25,7 +25,7 @@
     <div class="inner_body">
         <%= image_tag("beach.jpg", :alt => "beach", :class => "style_image") %>
     </div>
-    
+
     <% flash.each do |name, msg| -%>
        <%= content_tag :div, msg, class: name %>
     <% end -%>

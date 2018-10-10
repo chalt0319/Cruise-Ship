@@ -11,13 +11,14 @@ function addExcursion() {
       let posting = $.post(url, data)
 
       posting.done(function (e) {
-        console.log(e)
         let new_excursion = excursionLi(e["passenger"], e["excursion"], e["port"], e["hours"], e["pe"])
         $(".ul_excursions").append(new_excursion)
         let theTime = new Time(e["total_hours"].time, e["total_hours"].hours)
         $(".total_time").text(theTime.totalTime())
         $("input[name='commit']").prop( "disabled", false )
         $("select[name='excursion[id]']").val("")
+        $(".ports_link").show()
+        $(".ports").text("")
       })
     })
   })
@@ -40,6 +41,8 @@ function deleteExcursion(p, e) {
     $(".total_time").text(theTime.totalTime())
     $(".commentList_" + excersionId).remove()
     $(".id_" + excersionId).remove()
+    $(".ports_link").show()
+    $(".ports").text("")
   })
 }
 
