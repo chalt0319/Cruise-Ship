@@ -16,6 +16,8 @@ function addExcursion() {
         $(".ul_excursions").append(new_excursion)
         let theTime = new Time(e["total_hours"].time, e["total_hours"].hours)
         $(".total_time").text(theTime.totalTime())
+        $("input[name='commit']").prop( "disabled", false )
+        $("select[name='excursion[id]']").val("")
       })
     })
   })
@@ -52,7 +54,6 @@ class Time {
 }
 
 function excursionLi(p, e, port, hours, pe) {
-  // debugger
   let data = '<li class="excursion_info id_'
   + e.id + '">' + e.title + ' - '  + port.location +  ' - '
   + e.duration + " " + hours + ' - ' + '<span class="link add_comment" data-id="' + e.id
