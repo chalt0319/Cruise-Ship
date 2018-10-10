@@ -21,8 +21,6 @@ function filterSubmit() {
   })
 }
 
-
-
 function showShips(info) {
   let ships = ['<h2 class="ships_header">All Available Ships:</h2>']
   let zip_line = '<form id="filter"><input type="checkbox" name="zip_line" value="true">Zip Line</input><input type="checkbox" name="kid_friendly" value="true">Kid Friendly</input><input type="checkbox" name="casino" value="true">Casino</input><br><input type="submit" onclick="filterSubmit()"></input></form><br><br>'
