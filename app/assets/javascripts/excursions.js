@@ -12,12 +12,10 @@ function addExcursion() {
 
       posting.done(function (e) {
         console.log(e)
-        // debugger
         let new_excursion = excursionLi(e["passenger"], e["excursion"], e["port"], e["hours"], e["pe"])
         $(".ul_excursions").append(new_excursion)
         let theTime = new Time(e["total_hours"].time, e["total_hours"].hours)
         $(".total_time").text(theTime.totalTime())
-        // $(".total_time").text(`Total Excursion Time: ${e["excursion"].duration} ${e["hours"]}.`)
       })
     })
   })
@@ -66,13 +64,3 @@ function excursionLi(p, e, port, hours, pe) {
   + '</div></ul></div>'
   return data
 }
-
-// function pluralize(duration) {
-//   // debugger
-//   // pluralize(duration, "hour")
-//   if (duration === 1) {
-//     return duration + " hour"
-//   } else {
-//     return duration + " hours"
-//   }
-// }

@@ -14,9 +14,7 @@ class ExcursionsController < ApplicationController
   def create
     find_excursion
     find_passenger
-    # binding.pry
     if !@passenger.excursions.include?(@excursion)
-      # binding.pry
       @passenger.excursions << @excursion
       @passenger.save
       @port = Port.find(@excursion.port_id)
