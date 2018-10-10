@@ -104,3 +104,11 @@ footer {
   margin-right: auto;
   width: 250px;
 }
+
+.check {
+  margin: 10px;
+}
+
+.check_head {
+  margin-left: 10px;
+}

@@ -23,7 +23,7 @@ function filterSubmit() {
 
 function showShips(info) {
   let ships = ['<h2 class="ships_header">All Available Ships:</h2>']
-  let zip_line = '<form id="filter"><input type="checkbox" name="zip_line" value="true">Zip Line</input><input type="checkbox" name="kid_friendly" value="true">Kid Friendly</input><input type="checkbox" name="casino" value="true">Casino</input><br><input type="submit" onclick="filterSubmit()"></input></form><br><br>'
+  let zip_line = '<h3 class="check_head">Filter:</h3><form id="filter"><input class="check" type="checkbox" name="zip_line" value="true">Zip Line</input><input class="check" type="checkbox" name="kid_friendly" value="true">Kid Friendly</input><input class="check" type="checkbox" name="casino" value="true">Casino</input><input class="check" type="submit" onclick="filterSubmit()"></input></form><br><br>'
   ships.push(zip_line)
   info.forEach(function (ship) {
     let theShip = '<div class="ship_div">'

@@ -29,7 +29,7 @@ Ship.create(name: "Jolly Roger", capacity: 700, number_of_swimming_pools: 4, kid
 Ship.create(name: "Queen Anne’s Revenge", capacity: 200, number_of_swimming_pools: 2, kid_friendly: true, casino: false, zip_line: false, captain_id: d.id)
 Ship.create(name: "The Oceans Tortuga", capacity: 250, number_of_swimming_pools: 1, kid_friendly: false, casino: false, zip_line: true, captain_id: a.id)
 Ship.create(name: "The Black Pearl", capacity: 375, number_of_swimming_pools: 2, kid_friendly: true, casino: true, zip_line: false, captain_id: b.id)
-Ship.create(name: "The Evil Minnow", capacity: 500, number_of_swimming_pools: 4, kid_friendly: false, casino: true, zip_line: false, captain_id: c.id)
+Ship.create(name: "The Evil Minnow", capacity: 500, number_of_swimming_pools: 4, kid_friendly: true, casino: true, zip_line: true, captain_id: c.id)
 Ship.create(name: "The Sudden Doubloon", capacity: 600, number_of_swimming_pools: 5, kid_friendly: true, casino: false, zip_line: true, captain_id: c.id)
 Ship.create(name: "The Buccaneers Hangman", capacity: 650, number_of_swimming_pools: 4, kid_friendly: false, casino: true, zip_line: true, captain_id: b.id)
 
