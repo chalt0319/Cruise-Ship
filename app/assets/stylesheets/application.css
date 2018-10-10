@@ -106,9 +106,13 @@ footer {
 }
 
 .check {
-  margin: 10px;
+  margin-left: 15px;
 }
 
 .check_head {
-  margin-left: 10px;
+  margin-left: 15px;
+}
+
+.largest_ship_link {
+  margin-left: 15px;
 }
