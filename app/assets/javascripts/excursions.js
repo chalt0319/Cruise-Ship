@@ -3,6 +3,23 @@ function addExcursion() {
   $.get(`/passengers/${passengerId}/excursions/new`, function (response) {
     $(".add_excursion").before(response)
     $(".add_excursion").remove()
+    $("#new_excursion").submit(function (e) {
+      e.preventDefault()
+      let excursionId = $("select[name='excursion[id]']").val()
+      let url = `/passengers/${passengerId}/excursions`
+      let data = {id: excursionId}
+      let posting = $.post(url, data)
+
+      posting.done(function (e) {
+        console.log(e)
+        // debugger
+        let new_excursion = excursionLi(e["passenger"], e["excursion"], e["port"], e["hours"], e["pe"])
+        $(".ul_excursions").append(new_excursion)
+        let theTime = new Time(e["total_hours"].time, e["total_hours"].hours)
+        $(".total_time").text(theTime.totalTime())
+        // $(".total_time").text(`Total Excursion Time: ${e["excursion"].duration} ${e["hours"]}.`)
+      })
+    })
   })
 }
 
@@ -35,3 +52,27 @@ class Time {
     return `Total Excursion Time: ${this.time} ${this.hours}.`
   }
 }
+
+function excursionLi(p, e, port, hours, pe) {
+  // debugger
+  let data = '<li class="excursion_info id_'
+  + e.id + '">' + e.title + ' - '  + port.location +  ' - '
+  + e.duration + " " + hours + ' - ' + '<span class="link add_comment" data-id="' + e.id
+  + '" onclick="addComment(' + p.id + ', ' + e.id + ', ' + pe.id
+  + ')">Add Comment</span> - <span class="link delete_link"  onclick="deleteExcursion('
+  + p.id + ', ' + e.id + ')">Delete</span></li>'
+  + '<div class="divChild_' + e.id + '">'
+  + '<ul><div class="commentList_' + e.id + '">'
+  + '</div></ul></div>'
+  return data
+}
+
+// function pluralize(duration) {
+//   // debugger
+//   // pluralize(duration, "hour")
+//   if (duration === 1) {
+//     return duration + " hour"
+//   } else {
+//     return duration + " hours"
+//   }
+// }

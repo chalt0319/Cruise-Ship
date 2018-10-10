@@ -14,10 +14,18 @@ class ExcursionsController < ApplicationController
   def create
     find_excursion
     find_passenger
+    # binding.pry
     if !@passenger.excursions.include?(@excursion)
+      # binding.pry
       @passenger.excursions << @excursion
       @passenger.save
-      show_passenger_page
+      @port = Port.find(@excursion.port_id)
+      @hours = pluralize(@excursion.duration, "hour")
+      @total_hours = pluralize_hours(@passenger)
+      @pe = find_pe(@passenger, @excursion)[0]
+      @data = {passenger: @passenger, excursion: @excursion, port: @port, hours: @hours, pe: @pe, total_hours: @total_hours}
+      render json: @data
+      # show_passenger_page
     else
       flash[:alert] = "You are already signed up for that excersion!"
       show_passenger_page
@@ -73,6 +81,10 @@ class ExcursionsController < ApplicationController
     else
       word
     end
+  end
+
+  def find_pe(passenger, excursion)
+    PassengerExcursion.where("passenger_id = ? AND excursion_id = ?", passenger.id, excursion.id)
   end
 
 end
