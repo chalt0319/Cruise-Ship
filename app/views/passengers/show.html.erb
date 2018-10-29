@@ -1,20 +1,21 @@
-<h1 class="passenger_name" data-id="<%=@passenger.id%>">Welcome <%=@passenger.name%>!</h1>
+<div class="passenger-box">
+  <h1 class="passenger_name" data-id="<%=@passenger.id%>">Welcome <%=@passenger.name%>!</h1>
 
-<h3>Your Ship is: <%=@passenger.ship.name%></h3>
+  <h3>Your Ship is: <%=@passenger.ship.name%></h3>
 
-<h3>Your Captain is: <%=ship_captain(@passenger)%></h3>
+  <h3>Your Captain is: <%=ship_captain(@passenger)%></h3>
 
-<h3>Your Excursions:</h3>
+  <h3>Your Excursions:</h3>
 
-<%= render partial: "excursions", locals: {excursions: @excursions, passenger: @passenger, passenger_excursion: @passenger_excursion} %>
+  <%= render partial: "excursions", locals: {excursions: @excursions, passenger: @passenger, passenger_excursion: @passenger_excursion} %>
 
-  <span class="link ports_link" onclick="showPorts(<%=@passenger.id%>)">Show Ports</span>
-  <div class="ports">
-  </div>
+    <span class="link ports_link" onclick="showPorts(<%=@passenger.id%>)">Show Ports</span>
+    <div class="ports">
+    </div>
 
 
-<h3 class="total_time">Total Excursion Time: <%=pluralize_hours(@passenger)%>.</h3>
-
+  <h3 class="total_time">Total Excursion Time: <%=pluralize_hours(@passenger)%>.</h3>
+</div>
 <div class="add_excursion_div">
   <span class="link add_excursion" onclick="addExcursion()">Add Excursion</span>
   <!-- <%=link_to("Add Excursion", new_passenger_excursion_path(@passenger))%><br> -->

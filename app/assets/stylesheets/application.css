@@ -30,6 +30,7 @@ h1 {
 
 body {
   margin-top: 80px;
+  font-family: Optima, sans-serif;
 }
 
 .links {
@@ -92,7 +93,7 @@ a:visited {
   border-width: 3px;
   border-color: #d9d9d9;
   background-color: #ffffff;
-  border-radius: 10px;
+  border-radius: 5px;
   width: 46%;
   padding-left: 30px;
   margin-bottom: 10px;
@@ -139,4 +140,34 @@ footer {
 
 .ship-img:hover {
   cursor: pointer;
+}
+
+.passenger-box {
+  border-style: solid;
+  border-width: 3px;
+  border-color: #d9d9d9;
+  background-color: #ffffff;
+  border-radius: 5px;
+  padding-left: 20px;
+  width: 50%;
+}
+
+.excursion-box {
+  border-style: solid;
+  border-width: 3px;
+  border-color: #d9d9d9;
+  background-color: #d9d9d9;
+  border-radius: 5px;
+  padding-left: 20px;
+  width: 50%;
+  margin-top: 10px;
+}
+
+.add_excursion {
+  margin-left: 8px;
+}
+
+.add_excursion_div {
+  margin-top: 5px;
+  padding-bottom: 10px;
 }

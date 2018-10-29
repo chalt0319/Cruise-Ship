@@ -1,3 +1,4 @@
+<div class="excursion-box">
 <h2>Add Excursion:</h2>
 
 <%= render partial: "form_add", locals: {passenger: @passenger, excursion: @excersion, excursions: @excursions} %>
@@ -7,4 +8,5 @@
 <%@excursions.each do |e|%>
     <div class=" link excursion_link excursion_id_<%=e.id%>" onclick="showExcursion(<%=@passenger.id%>, <%=e.id%>, '<%=e.title%>')"><%=e.title%></div>
 <%end%>
-<br><br>
+<br>
+</div>

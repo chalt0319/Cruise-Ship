@@ -1,5 +1,5 @@
 <%=form_for([@passenger, @excursion]) do |f|%>
   <%=f.label "Excursion"%>
-  <%=f.collection_select(:id, @excursions, :id, :title, {include_blank: ""})%><br><br>
+  <%=f.collection_select(:id, @excursions, :id, :title, {include_blank: ""})%>
   <%=f.submit "Add"%>
 <%end%>
