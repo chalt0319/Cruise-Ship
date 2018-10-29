@@ -171,3 +171,23 @@ footer {
   margin-top: 5px;
   padding-bottom: 10px;
 }
+
+.advertising-box {
+  /* border-style: solid;
+  border-width: 3px;
+  border-color: white;
+  background-color: white;
+  border-radius: 5px;
+  padding-left: 20px;
+  width: 100%;
+  margin-top: 10px;
+  height: 400px; */
+}
+
+.advertising-img {
+  float: left;
+  display: inline-block;
+  margin-left: 13px;
+  width: 32%;
+  height: 300px;
+}
