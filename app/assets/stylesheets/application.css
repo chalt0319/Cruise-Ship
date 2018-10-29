@@ -44,6 +44,11 @@ body {
   font-family: Optima, sans-serif;
 }
 
+.links:hover {
+  text-decoration: none;
+  background: #bfbfbf;
+}
+
 a:link {
   text-decoration: none;
   color: blue;
