@@ -14,8 +14,8 @@ Captain.destroy_all
 PassengerExcursion.destroy_all
 
 p = Port.create(name: "Port 1", location: "The Bahamas")
-st = Port.create(name: "Port 2", location: "St. Marteen")
-l = Port.create(name: "Port 3", location: "Labodee")
+st = Port.create(name: "Port 2", location: "St. Maarten")
+l = Port.create(name: "Port 3", location: "Labadee")
 
 c = Captain.create(name: "El Capitan", password: "yes", secret_phrase: "ipromise")
 b = Captain.create(name: "Jack Sparrow", password: "yes", secret_phrase: "ipromise")

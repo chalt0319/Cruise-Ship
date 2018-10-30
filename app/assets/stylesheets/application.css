@@ -174,30 +174,35 @@ footer {
 }
 
 .advertising-box {
-  /* border-style: solid;
+  border-style: solid;
   border-width: 3px;
-  border-color: white;
-  background-color: white;
+  border-color: #d9d9d9;
+  background-color: #d9d9d9;
   border-radius: 5px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  /* padding-top: -10px; */
+  padding-bottom: 30px;
   width: 100%;
-  margin-top: 10px; */
 }
 
 .advertising-img {
   float: left;
   display: inline-block;
   margin-left: 13px;
+  margin-top: 10px;
   width: 32%;
-  height: 300px;
+  height: 350px;
 }
 
-.figcaption {
+.ad-img {
+  width: 100%;
+  height: inherit;
+}
+
+/* .figcaption {
   position: relative;
   bottom: 10px;
   left: -10px;
-}
+} */
 
 .clearfix:after {
     content: ".";
