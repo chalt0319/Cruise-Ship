@@ -230,7 +230,21 @@ footer {
   width: 150px;
 }
 
+#passenger_name {
+  position: relative;
+  left: 10px;
+  margin-bottom: 8px;
+  width: 150px;
+}
+
 #password {
+  position: relative;
+  left: 18px;
+  margin-bottom: 8px;
+  width: 150px;
+}
+
+#passenger_password {
   position: relative;
   left: 18px;
   margin-bottom: 8px;
