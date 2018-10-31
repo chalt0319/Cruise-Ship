@@ -16,7 +16,7 @@
  */
 
 h1 {
-  color: blue;
+  color: #98b5e6;
 }
 
 .header {
@@ -31,7 +31,7 @@ h1 {
 body {
   margin-top: 80px;
   font-family: Optima, sans-serif;
-  background: white;
+  background: #142a52;
 }
 
 .links {
@@ -53,7 +53,11 @@ body {
 
 a:link {
   text-decoration: none;
-  color: blue;
+  color: #98b5e6;
+}
+
+a {
+  color: #98b5e6;
 }
 
 a:hover {
@@ -76,24 +80,24 @@ a:visited {
 } */
 
 .link {
-  color: blue;
+  color: #98b5e6;
 }
 .link:hover {
-  color: blue;
+  color: white;
   text-decoration: underline;
   cursor: pointer;
 }
 
 .excursion_title {
-  color: blue;
+  color: white;
 }
 
 .ship_div {
   display: inline-block;
   border-style: solid;
   border-width: 3px;
-  border-color: #d9d9d9;
-  background-color: #d9d9d9;
+  border-color: #98b5e6;
+  background-color: #98b5e6;
   border-radius: 5px;
   width: 46%;
   padding-left: 30px;
@@ -103,7 +107,7 @@ a:visited {
 
 footer {
   width: 100%;
-  background-color: white;
+  background-color: #142a52;
   position: fixed;
   bottom: 0;
   padding-left: 10px;
@@ -117,6 +121,7 @@ footer {
   margin-left: auto;
   margin-right: auto;
   width: 250px;
+  color: #98b5e6
 }
 
 .check {
@@ -125,10 +130,12 @@ footer {
 
 .check_head {
   margin-left: 15px;
+  color: #98b5e6;
 }
 
-.largest_ship_link {
+a.largest_ship_link {
   margin-left: 15px;
+  color: #98b5e6;
 }
 
 .ship-img {
@@ -146,8 +153,8 @@ footer {
 .passenger-box {
   border-style: solid;
   border-width: 3px;
-  border-color: #d9d9d9;
-  background-color: #d9d9d9;
+  border-color: #1f3d7a;
+  background-color: #1f3d7a;
   border-radius: 5px;
   padding-left: 20px;
   width: 50%;
@@ -156,8 +163,8 @@ footer {
 .excursion-box {
   border-style: solid;
   border-width: 3px;
-  border-color: #d9d9d9;
-  background-color: #d9d9d9;
+  border-color: #1f3d7a;
+  background-color: #1f3d7a;
   border-radius: 5px;
   padding-left: 20px;
   width: 50%;
@@ -176,8 +183,8 @@ footer {
 .advertising-box {
   border-style: solid;
   border-width: 3px;
-  border-color: #d9d9d9;
-  background-color: #d9d9d9;
+  border-color: #98b5e6;
+  background-color: #98b5e6;
   border-radius: 5px;
   /* padding-top: -10px; */
   padding-bottom: 30px;
@@ -227,32 +234,32 @@ footer {
   position: relative;
   left: 10px;
   margin-bottom: 8px;
-  width: 150px;
+  width: 62%;
 }
 
 #passenger_name {
   position: relative;
   left: 10px;
   margin-bottom: 8px;
-  width: 150px;
+  width: 62%;
 }
 
 #password {
   position: relative;
   left: 18px;
   margin-bottom: 8px;
-  width: 150px;
+  width: 62%;
 }
 
 #passenger_password {
   position: relative;
   left: 18px;
   margin-bottom: 8px;
-  width: 150px;
+  width: 62%;
 }
 
 .login-submit {
-  width: 241px;
+  width: 100%;
   height: 25px;
   background: #70db70;
   font-size: 15px;
@@ -261,4 +268,17 @@ footer {
   border-width: 3px;
   border-color: #70db70;
   border-radius: 5px;
+}
+
+#filter {
+  color: #98b5e6;
+}
+
+.alert {
+  color: #98b5e6;
+  margin-bottom: 10px;
+}
+
+a.facebook {
+  color: #98b5e6;
 }
