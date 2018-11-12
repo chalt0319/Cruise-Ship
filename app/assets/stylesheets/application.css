@@ -39,13 +39,13 @@ div.header a.links {
   display: inline-block;
   padding-right: 10px;
   padding-left: 10px;
-  /* padding-top: 5px;
-  padding-bottom: 5px; */
-  /* background: white; */
-  /* border: 0px solid white;
-  border-radius: 10px; */
   font-family: Optima, sans-serif;
   color: blue;
+}
+
+div.header a.links:hover {
+  text-decoration: none;
+  color: white;
 }
 
 .links:hover {
@@ -206,12 +206,6 @@ a.largest_ship_link {
   width: 100%;
   height: inherit;
 }
-
-/* .figcaption {
-  position: relative;
-  bottom: 10px;
-  left: -10px;
-} */
 
 .clearfix:after {
     content: ".";

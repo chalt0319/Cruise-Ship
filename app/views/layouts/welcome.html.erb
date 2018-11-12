@@ -2,7 +2,10 @@
 
 <br>
 <div class="all_ships">
-  <img class="ship-img" onclick="learnLink()" src="https://dumielauxepices.net/sites/default/files/monitor-lizard-clipart-transparent-background-686908-3653187.png" alt="Cruise Ship">
+  <span onclick="learnLink()"><%= image_tag("ship.png", :alt => "Cruise Ship", :class => "ship-img") %></span> 
+
+  <!-- <img class="ship-img" onclick="learnLink()" src="https://dumielauxepices.net/sites/default/files/monitor-lizard-clipart-transparent-background-686908-3653187.png" alt="Cruise Ship"> -->
+
   <div class="advertising-box clearfix">
     <div class="advertising-img">
       <%= image_tag("labadee.png", :alt => "labadee", :class => "ad-img") %>
