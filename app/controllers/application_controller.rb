@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
     render "layouts/welcome"
   end
 
-  def check_current_user
+  def check_current_user  # will return true if the current user is also the current session id
     if @passenger || @captain
       if @passenger
         if @passenger.id == session[:user_id]
@@ -37,7 +37,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def logged_in?
+  def logged_in?  # checks to see if there is a session id, meaning someone is logged in
     if !!session[:user_id] || !!session[:captain_id]
       true
     else
@@ -45,7 +45,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def current_user
+  def current_user  # displays the current users name in the navigation bar
     if logged_in?
       if @captain = Captain.find_by(id: session[:captain_id])
         "#{@captain.name}'s Profile"
@@ -59,7 +59,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def current_user_path
+  def current_user_path  # attaches the correct user path depending on who is logged in
     if !!Passenger.find_by(id: session[:user_id])
       @passenger = Passenger.find(session[:user_id])
       passenger_path(@passenger)
@@ -69,7 +69,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def current_user_instance
+  def current_user_instance  # returns the Passenger or Captain instance
     if !!Passenger.find_by(id: session[:user_id])
       Passenger.find(session[:user_id])
     elsif !!Captain.find_by(id: session[:captain_id])
