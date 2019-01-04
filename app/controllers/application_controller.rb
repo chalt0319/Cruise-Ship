@@ -26,7 +26,7 @@ class ApplicationController < ActionController::Base
           false
         end
       else
-        false 
+        false
       end
     else
       if params[:passenger_id].to_i == session[:user_id]
